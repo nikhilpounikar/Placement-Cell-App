@@ -6,9 +6,8 @@ const router = express.Router();
 const employeeController = require('../controllers/employee_controller');
 
 
-router.get('/employe:id',homeController.home);
-router.post('/employe',homeController.home);
-router.put('/employe:id',homeController.home);
-router.delete('/employe:id',homeController.home);
+router.get('/login',employeeController.login);
+router.post('/register',employeeController.register);
+
 
 module.exports = router;
