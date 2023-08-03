@@ -5,9 +5,17 @@ const express = require('express');
 const router = express.Router();
 const employeeController = require('../controllers/employee_controller');
 
+router.get("/sign-up", employeeController.signUp);
 
-router.get('/login',employeeController.login);
-router.post('/register',employeeController.register);
+router.get("/sign-in", employeeController.signIn);
 
+router.post("/register",employeeController.register);
+
+// using Passport authentication
+router.post(
+    "/login",
+    passport.authenticate("local", { failureRedirect: "/user/sign-in" }),
+    employeeController.login
+);
 
 module.exports = router;

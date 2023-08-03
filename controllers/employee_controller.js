@@ -54,3 +54,17 @@ module.exports.login = async function (req, res) {
   req.flash('error',"Login Successful");
   return res.redirect('home');
 };
+
+// redering the singIN page
+module.exports.signIn = function(req, res){
+  return res.render('sign_in', {
+      title : 'Placement | Sign-In'
+  });
+}
+
+// This function is used for rendering the signUp page
+module.exports.signUp = function(req, res){
+  return res.render('sign_up', {
+      title : 'Placement | Sign-Up'
+  });
+}
