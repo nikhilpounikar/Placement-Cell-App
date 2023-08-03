@@ -2,58 +2,55 @@ const Employee = require("../models/Employee");
 
 module.exports.register = async function (req, res) {
   try {
-    //if user is already sign-in redirect to profile
-    if (req.isAuthenticated()) {
-      return res.redirect("/user/profile");
-    }
-
-    return res.render("user_sign_up", {
-      // person:"Taliq"
-      title: "Sign Up",
-    });
-
+  
     if (req.body.password !== req.body.confirm_password) {
-      return res.status(422).json({
-        message: "Password and Confirm password does not match",
-      });
+      req.flash('error',"Password and Confirm password does not match");
+      return res.redirect('back');
     }
 
     let employee = await Employee.findOne({ email: req.body.email });
 
     if (!employee) {
-      await Employee.create(req.body);
+      employee=await Employee.create(req.body);
 
-      console.log("Employee Added Successfully");
-      return this.createSession(req, res);
-    } else {
-      return res.status(403).json({
-        message: "Employee Already Exits",
+      req.flash('success',"Thanks for registration.");
+      return res.redirect('home',{
+        'employee':employee,
+        title:'Home'
       });
+    } else {
+
+      req.flash('error',"This Email Already Exits. Please try login");
+      return res.redirect('back');
     }
   } catch (err) {
-    return res.status(500).json({
-      message: "Error Registering Employee",
-    });
+    req.flash('error',"Error Registering Employee");
+    return res.redirect('back');
   }
 };
 
 module.exports.login = async function (req, res) {
-  try {
+  // this work will be done by passport
+ /* try {
     let employee = await Employee.findOne({ email: req.body.email });
 
     if (employee) {
-      return res.status(200).json(employee);
-    } else {
-      return res.status(422).json({
-        message: "Invalid Username or Password",
+      req.flash('success','Signed In Successfully!');
+      return res.redirect('home',{
+        'employee':employee,
+        title:'Home'
       });
+    } else {
+      req.flash('success',"Invalid Username or Password");
+      return res.redirect('back');
     }
 
-    // passport authentication
-  req.flash('success','Signed In Successfully!');
-  return res.redirect("/");
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ message: "Internal Server Exception" });
-  }
+    req.flash('success',"Interval Server Exception");
+    return res.redirect('back');
+  }*/
+  
+  req.flash('error',"Login Successful");
+  return res.redirect('home');
 };
