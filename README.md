@@ -27,8 +27,7 @@ Forget Password
 Assign Task
 Employee List
 Folder Structure
-Employee Review System
-    |
+Placement-Cell-App    |
     |               |--->css
     |--->assets---->|--->images
     |             
