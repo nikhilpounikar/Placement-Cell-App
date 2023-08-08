@@ -1,9 +1,9 @@
 //require the library
 const mongoose = require('mongoose');
-//const env = require('./environment');
+const env = require('./environment');
 
 //connect to the database
-mongoose.connect('mongodb://localhost:27017/employee_review_db');
+mongoose.connect('mongodb://localhost/'+env.db);
 
 //acquire the connection(to check if it's successful)
 const db = mongoose.connection;
