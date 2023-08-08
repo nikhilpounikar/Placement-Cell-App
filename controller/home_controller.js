@@ -4,29 +4,32 @@ const Inteview = require("../models/Interview");
 
 module.exports.home = async function (req, res) {
   try {
-    let posts = await Post.find({})
-      .sort('-createdAt')
-      .populate("user")
-      .populate({
-        // fetching all comments related to the post
-        path: "comments",
-        populate: {
-          // fetching all the user who have made comment on the purticular post
-          path: "user",
-        },
-        populate: {
-            path: 'likes'
-        }
+    let students = await Student.find({})
+      //.sort('-createdAt')
+      .populate("Interview")
+    //   .populate({
+    //     // fetching all comments related to the post
+    //     path: "Batch",
+    //     populate: {
+    //       // fetching all the user who have made comment on the purticular post
+    //       path: "user",
+    //     },
+    //     populate: {
+    //         path: 'likes'
+    //     }
         
-      }).populate('comments')
-      .populate('likes');
+    //   })
+      .populate('Batch')
+      .populate('Result');
 
-    let users = await User.find({});
+    let interviews = await Inteview.find({});
+    let batch = await Batch.find({});
 
     return res.render("home", {
-      title: "Project | Home",
-      posts: posts,
-      all_users: users,
+      title: "Placement | Home",
+      students: students,
+      interviews: interviews,
+      batchList:batch
     });
   } catch (err) {
     console.log("Error in home controller : ", err);
