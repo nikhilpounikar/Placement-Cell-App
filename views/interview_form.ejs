@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Interview</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Create Interview</h2>
+  <form action="/create-interview" method="POST">
+    <label for="companyName">Company Name:</label>
+    <input type="text" id="companyName" name="companyName" required>
+    
+    <label for="students">Students:</label>
+    <select id="students" name="students" multiple required>
+      <% students.forEach(student => { %>
+        <option value="<%= student._id %>"><%= student.name %></option>
+      <% }); %>
+    </select>
+    
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+    
+    <label for="result">Result:</label>
+    <select id="result" name="result">
+      <% results.forEach(result => { %>
+        <option value="<%= result._id %>"><%= result.name %></option>
+      <% }); %>
+    </select>
+    
+    <button type="submit">Create Interview</button>
+  </form>
+</div>
+
+</body>
+</html>
