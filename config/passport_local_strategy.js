@@ -2,51 +2,49 @@ const passport = require("passport");
 
 const LocalStrategy = require("passport-local").Strategy;
 
-const User = require("../models/User");
+const Employee = require("../models/Employee");
 
-//authentication using passprt
 passport.use(
   new LocalStrategy(
     {
       usernameField: "email",
-      passReqToCallback:true
+      passReqToCallback: true,
     },
-    function (req,email, password, done) {
-      User.findOne({ email: email })
-        .then((user) => {
-          if (!user || user.password != password) {
-            req.flash('error',"Invalid Username/Password");
-            console.log("Invalid Username/Password");
-            return done(null, false);
-          }
-          // if (!user.verifyPassword(password)) {
-          //   return done(null, false);
-          // }
-          return done(null, user);
-        })
-        .catch((err) => {
-          req.flash('error',"Eror Finding User ==> Passport");
-          console.log("Eror Finding User ==> Passport");
-          return done(err);
-        });
+    async (req, email, password, done) => {
+      try {
+        const employee = await Employee.findOne({ email: email });
+
+        if (!employee || employee.password !== password) {
+          req.flash("error", "Invalid Username/Password");
+          console.log("Invalid Username/Password");
+          return done(null, false);
+        }
+
+        return done(null, employee);
+      } catch (err) {
+        req.flash("error", "Error Finding User ==> Passport");
+        console.log("Error Finding User ==> Passport");
+        return done(err);
+      }
     }
   )
 );
 
+
 // serialise the user to decide which key is to be kept in cookies
 // it is responsible for managing the cookie
-passport.serializeUser(function (user, done) {
-  done(null, user.id);
+passport.serializeUser(function (employee, done) {
+  done(null, employee.id);
 });
 
 // deserialising the user key in cookie
 passport.deserializeUser(function (id, done) {
-  User.findById({ _id: id })
-    .then((user) => {
-      return done(null, user);
+  Employee.findById({ _id: id })
+    .then((employee) => {
+      return done(null, employee);
     })
     .catch((err) => {
-      console.log("Error in finding the user ===> Passport");
+      console.log("Error in finding the employee ===> Passport");
       return done(err);
     });
 });
@@ -67,7 +65,7 @@ passport.setAuthenticatedUser = function (req, res, next) {
   if (req.isAuthenticated()) {
     //req.user contains current signed-in user
     // setting this information for view
-    res.locals.user = req.user;
+    res.locals.employee = req.employee;
   }
 
   next();
