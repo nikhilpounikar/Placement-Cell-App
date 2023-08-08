@@ -5,10 +5,12 @@ const employeeController = require("../controller/employee_controller");
 
 const router = express.Router();
 
-router.post('registration',employeeController.register);
+router.post('/sign-up',employeeController.register);
 
-app.get("/login", employeeController.signIn);
+router.get('/sign-up',employeeController.signUp);
+
+router.get("/sign-in", employeeController.signIn);
   
-app.post("/login", employeeController.login);
+router.post("/sign-in", employeeController.login);
 
 module.exports = router;
