@@ -25,7 +25,7 @@ module.exports.home = async function (req, res) {
     let interviews = await Inteview.find({});
     let batch = await Batch.find({});
 
-    return res.render("home", {
+    return res.render("dashboard", {
       title: "Placement | Home",
       students: students,
       interviews: interviews,

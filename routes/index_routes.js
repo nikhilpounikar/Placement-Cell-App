@@ -10,6 +10,7 @@ const router = express.Router();
 
 console.log("Router loader");
 router.get('/',passport.checkAuthentication,homeController.home);
+router.use('/employee',require('./employee_route'));
 //router.use('/user',require('./userRoute'));
 
 module.exports = router;

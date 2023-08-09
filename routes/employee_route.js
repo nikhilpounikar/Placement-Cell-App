@@ -6,6 +6,7 @@ const employeeController = require("../controller/employee_controller");
 const router = express.Router();
 
 router.post('/sign-up',employeeController.register);
+// router.get('/sign-up',employeeController.register);
 
 router.get('/sign-up',employeeController.signUp);
 
