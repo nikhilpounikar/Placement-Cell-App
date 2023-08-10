@@ -5,7 +5,7 @@ const studentController = require("../controller/student_controller");
 
 const router = express.Router();
 
-// router.post('/register',employeeController.register);
+router.post('/register',studentController.register);
 // router.get('/sign-up',employeeController.register);
 
 router.get('/register',studentController.getRegisterForm);
