@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="/css/student_form.css">
+
+<div class="form-container">
+
+  <form action="/create-student" method="POST">
+      <div class="input-container">
+
+          <div class="leftContainer">
+              <h2>Student Information Form</h2>
+
+              <input type="email" placeholder="Email" id="email" name="email" required>
+
+
+              <input type="text" placeholder="Name" id="name" name="name" required>
+
+
+              <input type="text" placeholder="Collage" id="college" name="college" required>
+
+              <select id="status" name="status" required>
+                  <option value="Placed">Placed</option>
+                  <option value="Not Placed">Not Placed</option>
+              </select>
+          </div>
+
+          <div class="rightContainer">
+              <h2>Student Information Form</h2>
+
+              <input type="number" placeholder="React Score" id="reactScore" name="reactScore" required>
+
+              <input type="number" placeholder="Web Dev Score" id="webDevelopmentScore" name="webDevelopmentScore"
+                  required>
+
+              <input type="number" placeholder="DSA Score" id="dsaScore" name="dsaScore" required>
+
+              <select id="batch" name="batch">
+                  <!-- <% availableBatches.forEach(batch => { %>
+      <option value="<%= batch._id %>"><%= batch.name %></option>
+    <% }); %> -->
+                  <option value="<%= batch._id %>">Java</option>
+                  <option value="<%= batch._id %>">Python</option>
+                  <option value="<%= batch._id %>">C++</option>
+                  <option value="<%= batch._id %>">Web Dev</option>
+              </select>
+              <input type="submit" value="Submit">
+          </div>
+      </div>
+
+
+  </form>
+</div>

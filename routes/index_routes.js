@@ -11,6 +11,7 @@ const router = express.Router();
 console.log("Router loader");
 router.get('/',homeController.home);
 router.use('/employee',require('./employee_route'));
+router.use('/student',require('./student_route'));
 //router.use('/user',require('./userRoute'));
 
 module.exports = router;
