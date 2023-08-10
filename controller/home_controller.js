@@ -29,7 +29,7 @@ module.exports.home = async function (req, res) {
       title: "Placement | Home",
       students: students,
       interviews: interviews,
-      batchList:batch
+      batchList:batch,
     });
   } catch (err) {
     console.log("Error in home controller : ", err);

@@ -5,8 +5,12 @@
 <link rel="stylesheet" href="/css/chat_box.css"> -->
 <div id="main-container">
     <!-- Authenticate if user is loged in  -->
-<% if (locals.employee){ %>
-    <h1>Hello <% locals.employee  %></h1>
+    <h1><%=locals.employee  %></h1>
+<% if (locals.students){ %>
+
+    <% for(let student of students){ %>
+         <h1>Hello <% student %></h1>
+    <% } %>
 <% }else{  %>
 
 <% }  %>
