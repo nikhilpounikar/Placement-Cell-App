@@ -19,8 +19,7 @@ exports.register = async function(req,res){
         
         await Student.create(req.body);
 
-        req.flash('Success',"Student registered successfully");
-
+        req.flash('success',"Student registered successfully");
         return res.redirect('back');
 
 
