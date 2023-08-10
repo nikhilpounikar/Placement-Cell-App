@@ -6,21 +6,22 @@ module.exports.home = async function (req, res) {
   try {
     let students = await Student.find({})
       //.sort('-createdAt')
-      .populate("Interview")
-    //   .populate({
-    //     // fetching all comments related to the post
-    //     path: "Batch",
-    //     populate: {
-    //       // fetching all the user who have made comment on the purticular post
-    //       path: "user",
-    //     },
-    //     populate: {
-    //         path: 'likes'
-    //     }
+      .populate("batch")
+      .populate("interviews")
+      // .populate({
+      //   // fetching all comments related to the post
+      //   path: "Batch",
+      //   populate: {
+      //     // fetching all the user who have made comment on the purticular post
+      //     path: "user",
+      //   },
+      //   populate: {
+      //       path: 'likes'
+      //   }
         
-    //   })
-      .populate('Batch')
-      .populate('Result');
+      // })
+      // .populate('Batch')
+      .populate('result');
 
     let interviews = await Inteview.find({});
     let batch = await Batch.find({});
