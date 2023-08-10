@@ -9,7 +9,7 @@ const passport = require("passport");
 const router = express.Router();
 
 console.log("Router loader");
-router.get('/',passport.checkAuthentication,homeController.home);
+router.get('/',homeController.home);
 router.use('/employee',require('./employee_route'));
 //router.use('/user',require('./userRoute'));
 

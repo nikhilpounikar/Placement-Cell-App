@@ -11,16 +11,18 @@ exports.register = async (req, res) => {
       const { name, email, password, confirmPassword, role } = req.body;
       
       if (password !== confirmPassword) {
+        req.flash('error', "Passwords do not match");
         return res.render("employee_registration", { error: "Passwords do not match" });
       }
       
       const newEmployee = new Employee({ name, email, password, role });
       await newEmployee.save();
-      
-      res.redirect("/employee_registration"); // Redirect to registration page after successful registration
+      req.flash('error', "Thanks for Registration");
+      return res.redirect("/"); // Redirect to registration page after successful registration
     } catch (error) {
       console.error(error);
-      res.redirect("/back");
+      req.flash('error', "Interval Server Error");
+      res.render("employee_registration");
     }
 };
 
@@ -36,22 +38,25 @@ exports.login = async (req, res) => {
       
       const employee = await Employee.findOne({ email });
       if (!employee) {
-        req.flash('success','Signed In Successfully!');
+       
+        req.flash('error','Invalid email or password');
         return res.render("employee_login", {title:"Login", error: "Invalid email or password" });
       }
       
       if (employee.password !== password) {
+       
         req.flash('success','Signed In Successfully!');
         return res.render("employee_login", {title:"Login", error: "Invalid email or password" });
       }
-      
+  
       // Store employee data in session or create a token for authentication
-      
-      res.redirect("/dashboard",{
-        ttile:"Dashboard"
-      }); // Redirect to employee dashboard after successful login
+      req.flash('success','Signed In Successfully!');
+      return res.render("/",{
+        "employee":employee
+      });
     } catch (error) {
       console.error(error);
-      res.status(500).send("Internal Server Error");
+      req.flash('error', "Interval Server Error");
+      return res.status(500).send("Internal Server Error");
     }
 };

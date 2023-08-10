@@ -55,7 +55,7 @@ passport.checkAuthentication = function (req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
-
+  console.log("Inside Auth");
   // if user not authenticated navigate the user to sign-in
   return res.redirect("/employee/sign-in");
 };
@@ -65,6 +65,7 @@ passport.setAuthenticatedUser = function (req, res, next) {
   if (req.isAuthenticated()) {
     //req.user contains current signed-in user
     // setting this information for view
+    
     res.locals.employee = req.employee;
   }
 
