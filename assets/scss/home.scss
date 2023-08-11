@@ -1,22 +1,19 @@
 
 #main-container{
 
-    display: flex;
-    padding: 10px;
-    background-color: rgb(89, 189, 189);
-    width: 100%;
-    #feed-post{
-
-        width: 70%;
-        padding: 5px;
-    }
-
-    #friend-list {
-
-        width: 30%;
-        height: 100%;
-        padding: 10px;
-        border-left: 2px solid grey;
-
-    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+      }
+      th, td {
+        text-align: left;
+        padding: 8px;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
 }

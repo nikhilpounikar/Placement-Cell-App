@@ -12,17 +12,17 @@ exports.register = async (req, res) => {
       
       if (password !== confirmPassword) {
         req.flash('error', "Passwords do not match");
-        return res.render("employee_registration", { error: "Passwords do not match" });
+        return res.redirect('back');
       }
       
       const newEmployee = new Employee({ name, email, password, role });
       await newEmployee.save();
-      req.flash('error', "Thanks for Registration");
+      req.flash('success', "Thanks for Registration");
       return res.redirect("/"); // Redirect to registration page after successful registration
     } catch (error) {
       console.error(error);
       req.flash('error', "Interval Server Error");
-      res.render("employee_registration");
+      return res.redirect('back');
     }
 };
 
@@ -37,26 +37,18 @@ exports.login = async (req, res) => {
       const { email, password } = req.body;
       
       const employee = await Employee.findOne({ email });
-      if (!employee) {
+      if (!employee || employee.password !== password) {
        
         req.flash('error','Invalid email or password');
-        return res.render("employee_login", {title:"Login", error: "Invalid email or password" });
+        return res.redirect('back');
       }
       
-      if (employee.password !== password) {
-       
-        req.flash('success','Signed In Successfully!');
-        return res.render("employee_login", {title:"Login", error: "Invalid email or password" });
-      }
-  
       // Store employee data in session or create a token for authentication
       req.flash('success','Signed In Successfully!');
-      return res.render("/",{
-        "employee":employee
-      });
+      return res.redirect("/");
     } catch (error) {
       console.error(error);
       req.flash('error', "Interval Server Error");
-      return res.status(500).send("Internal Server Error");
+      return res.redirect('back');
     }
 };

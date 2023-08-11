@@ -1,16 +1,54 @@
 
 <%# I am some comment! %>
 <!-- Code for Layouts -->
-<!-- <link rel="stylesheet" href="/css/home.css">
-<link rel="stylesheet" href="/css/chat_box.css"> -->
+<!-- <link rel="stylesheet" href="/css/home.css">-->
+<link rel="stylesheet" href="/css/home.css"> 
 <div id="main-container">
     <!-- Authenticate if user is loged in  -->
     <h1>Dashboard  %></h1>
 <% if (locals.students){ %>
 
-    <% for(let student of students){  %>
-         <h1>Hello <%= student.name %></h1>
-    <% } %>
+    <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>College</th>
+            <th>Status</th>
+            <th>React Score</th>
+            <th>Web Development Score</th>
+            <th>DSA Score</th>
+            <th>Batch</th>
+            <th>Interviews</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% for(let student of students){  %>
+        
+         
+          <!-- Replace with dynamic student data from your server/database -->
+          <tr>
+            <td><%= student.name %></td>
+            <td><%= student.email %></td>
+            <td><%= student.collage %></td>
+            <td><%= student.status %></td>
+            <td><%= student.reactScore %></td>
+            <td><%= student.webDevelopmentScore %></td>
+            <td><%= student.dsaScore %></td>
+            <td><%= student.batch %></td>
+            <td>
+              <ul>
+                <% for(let interview of student.interviews){  %>
+                <li><a href="/interview?id=<%=interview%>">Interview 1</a></li>
+                <% } %>
+                <!-- Add more interview links as needed -->
+              </ul>
+            </td>
+          </tr>
+          <% } %>
+          <!-- Add more rows for other students -->
+        </tbody>
+      </table>
 <% }else{  %>
 
 <% }  %>
