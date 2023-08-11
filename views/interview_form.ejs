@@ -2,36 +2,29 @@
 <html>
 <head>
   <title>Create Interview</title>
-  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-
-<div class="container">
-  <h2>Create Interview</h2>
+  <h1>Create Interview</h1>
   <form action="/create-interview" method="POST">
     <label for="companyName">Company Name:</label>
-    <input type="text" id="companyName" name="companyName" required>
-    
-    <label for="students">Students:</label>
-    <select id="students" name="students" multiple required>
-      <% students.forEach(student => { %>
-        <option value="<%= student._id %>"><%= student.name %></option>
-      <% }); %>
-    </select>
-    
-    <label for="date">Date:</label>
-    <input type="date" id="date" name="date" required>
-    
-    <label for="result">Result:</label>
-    <select id="result" name="result">
-      <% results.forEach(result => { %>
-        <option value="<%= result._id %>"><%= result.name %></option>
-      <% }); %>
-    </select>
-    
+    <input type="text" id="companyName" name="companyName" required><br><br>
+
+    <label for="date">Interview Date:</label>
+    <input type="datetime-local" id="date" name="date" required><br><br>
+
+    <label for="student">Select Student:</label>
+    <select id="student" name="student" required>
+      <option value="" disabled selected>Select a student</option>
+      <!-- You can populate this dropdown with student options dynamically -->
+      <option value="studentId1">Student 1</option>
+      <option value="studentId2">Student 2</option>
+      <!-- Add more student options as needed -->
+    </select><br><br>
+
+    <label for="result">Interview Result:</label>
+    <input type="text" id="result" name="result"><br><br>
+
     <button type="submit">Create Interview</button>
   </form>
-</div>
-
 </body>
 </html>
