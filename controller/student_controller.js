@@ -41,7 +41,7 @@ exports.getInterviews = async function(req,res){
 
         if(!student){
             req.flash('error',"Student does not exits");
-            return res.redirect('/');
+            return res.redirect('back');
         }
         
         let interviews = await Interview.find();
@@ -50,6 +50,40 @@ exports.getInterviews = async function(req,res){
             student,
             interviews
         });
+
+    } catch (error) {
+        
+        console.log(error);
+        req.flash('error','Internal Server Error');
+        return res.redirect('back');
+    }
+}
+
+exports.scheduleInterview = async function(req,res){
+
+    
+    try {
+
+        let student = await Student.findById(req.params.id);
+
+        if(!student){
+            req.flash('error',"Student does not exits");
+            return res.redirect('back');
+        }
+        
+        let index = student.interviews.indexOf(req.body.interviewId);
+
+        if(index != -1){
+            req.flash('error',"Interview Already Scheduled");
+            return res.redirect('back');
+        }
+
+        student.interviews.push(req.body.interviewId);
+
+        await student.save();
+
+        req.flash('success',"Interview Scheduled Successfully");
+        return res.redirect('back');
 
     } catch (error) {
         
