@@ -35,14 +35,10 @@
             <td><%= student.reactScore %></td>
             <td><%= student.webDevelopmentScore %></td>
             <td><%= student.dsaScore %></td>
-            <td><%= student.batch %></td>
             <td>
-              <ul>
-                <% for(let interview of student.interviews){  %>
-                <li><a href="/interview?id=<%=interview%>">Interview 1</a></li>
-                <% } %>
-                <!-- Add more interview links as needed -->
-              </ul>
+                <%= student.batch %></td>
+            <td>
+                <a href="/student/interview/<%=student._id%>">View</a>
             </td>
           </tr>
           <% } %>
