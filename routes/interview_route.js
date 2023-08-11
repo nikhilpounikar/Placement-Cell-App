@@ -5,8 +5,8 @@ const interviewController = require("../controller/interview_controller");
 
 const router = express.Router();
 
-router.get("/create-interview",passport.setAuthenticated,interviewController.getInterviewForm);
-router.post("/create-interview",passport.setAuthenticated, interviewController.addInterview);
+router.get("/create",interviewController.getInterviewForm);
+router.post("/create", interviewController.addInterview);
 
 
 module.exports = router;

@@ -12,16 +12,31 @@ module.exports.getInterviewForm =  async (req, res) => {
   }
 };
 
+module.exports.getInterviewForm =  async (req, res) => {
+  
+  return res.render('interview_form');
+};
+
 // Route to handle interview creation form submission
 module.exports.addInterview =  async (req, res) => {
   try {
-    const { companyName, date } = req.body;
-    const newInterview = new Interview({ companyName, date });
-    await newInterview.save();
-    res.redirect("/create-interview"); // Redirect to interview creation page after successful submission
+   
+    let interview = await Interview.findOne({companyName:req.body.companyName,date:req.body.date});
+
+    if(interview){
+      req.flash('error','Interview already scheduled on this date');
+      return res.redirect('back');
+    }
+
+    await Interview.create(req.body);
+
+    req.flash('success',"Interview Scheduled Successfully");
+    return res.redirect('/');
+
   } catch (error) {
     console.error(error);
-    res.status(500).send("Internal Server Error");
+    req.flash('error','Internal Server Error');
+    return res.redirect('back');
   }
 };
 
