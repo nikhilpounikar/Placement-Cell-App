@@ -21,7 +21,7 @@ module.exports.home = async function (req, res) {
         
       // })
       // .populate('Batch')
-      .populate('result');
+      .populate('results');
 
     let interviews = await Inteview.find({});
     let batch = await Batch.find({});

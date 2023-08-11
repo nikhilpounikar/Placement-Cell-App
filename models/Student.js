@@ -43,10 +43,10 @@ const studentSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Batch",
     },
-    result:{
+    results:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Result",
-    }
+    }]
   },
   {
     timestamps: true,
