@@ -1,5 +1,10 @@
 const Batch = require("../models/Batch");
 
+
+module.exports.createBatch = function(req,res){
+
+  return res.render('batch_form',{title:"Placement Cell | Batch"});
+}
 module.exports.allBatches = async (req, res) => {
     try {
       const availableBatches = await Batch.find(); // Fetch available batches from your database
