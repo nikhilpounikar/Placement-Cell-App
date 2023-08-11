@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="/css/student_interview.css"> 
 <div class="student-interview-container">
-<h1>Interview List</h1>
 
+<% if (locals.student){ %>
+<h1> <%= student.name %></h1>
 
   <table>
     <thead>
@@ -12,9 +13,11 @@
       </tr>
     </thead>
     <tbody>
+
+      <% for(let interview of student.interviews){  %>
       <!-- Replace with dynamic interview data from your server/database -->
       <tr>
-        <td>ABC Company</td>
+        <td><%= JSON.stringify(interview) %></td>
         <td>2023-08-15</td>
         <td>
           <ul>
@@ -25,7 +28,10 @@
         </td>
         <td><a href="/result?id=resultId1">Result 1</a></td>
       </tr>
+      <% } %>
       <!-- Add more rows for other interviews -->
     </tbody>
   </table>
+
+  <% }  %>
 </div>

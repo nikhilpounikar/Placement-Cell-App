@@ -11,7 +11,7 @@ router.post('/register',studentController.register);
 router.get('/register',studentController.getRegisterForm);
 
 
-router.get('/interview',studentController.getInterviews);
+router.get('/interview/:id',studentController.getInterviews);
 // router.get("/sign-in", employeeController.signIn);
   
 // router.post("/sign-in", employeeController.login);
