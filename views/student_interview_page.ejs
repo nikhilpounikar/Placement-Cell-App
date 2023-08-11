@@ -2,6 +2,7 @@
 <div class="student-interview-container">
 
   <% if (locals.student){ %>
+    <% interviewResults = student.results %>
     <h1>
       <%= student.name %>
     </h1>
@@ -23,7 +24,15 @@
           const date=new Date(dateString); 
           const formattedDate=`${date.getFullYear()}-${(date.getMonth() +1).toString().padStart(2, '0' )}-${date.getDate().toString().padStart(2, '0' )}`; 
           
-          const tempData = interview.toString();
+          let interviewStatus;
+
+          for(let result of interviewResults){
+            if(result.interview.toString() === interview._id.toString() ){
+              interviewStatus = result.status;
+            }
+          }
+
+            
           %>
 
 
@@ -35,9 +44,8 @@
                 <%= formattedDate %>
               </td>
               <td>
-                <%= tempData %>
+                <%= interviewStatus %>
               </td>
-              <td><a href="/result?id=resultId1">Result 1</a></td>
             </tr>
             <% } %>
               <!-- Add more rows for other interviews -->

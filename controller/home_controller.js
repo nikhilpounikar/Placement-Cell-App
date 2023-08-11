@@ -8,19 +8,6 @@ module.exports.home = async function (req, res) {
       //.sort('-createdAt')
       .populate("batch")
       .populate("interviews")
-      // .populate({
-      //   // fetching all comments related to the post
-      //   path: "Batch",
-      //   populate: {
-      //     // fetching all the user who have made comment on the purticular post
-      //     path: "user",
-      //   },
-      //   populate: {
-      //       path: 'likes'
-      //   }
-        
-      // })
-      // .populate('Batch')
       .populate('results');
 
     let interviews = await Inteview.find({});

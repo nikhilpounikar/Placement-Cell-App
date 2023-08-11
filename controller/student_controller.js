@@ -27,7 +27,7 @@ exports.register = async function (req, res) {
 
 exports.getInterviews = async function (req, res) {
   try {
-    let student = await Student.findById(req.params.id).populate("interviews");
+    let student = await Student.findById(req.params.id).populate("interviews").populate('results');
 
     if (!student) {
       req.flash("error", "Student does not exits");
