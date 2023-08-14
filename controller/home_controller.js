@@ -13,7 +13,6 @@ module.exports.home = async function (req, res) {
       
       return res.redirect('/employee/sign-in');
   }
-  console.log(req);
   // Fetching the user and review from the form
   let employee = await Employee.findById(req.user.id);
 

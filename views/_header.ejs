@@ -2,9 +2,9 @@
 <header>
 
     <ul>
-        <% if (locals.employee){ %>
+        <% if (locals.user){ %>
             <li>
-                <a href="/employee/sign-out">Sign Out</a>
+                <a href="/">Home</a>
             </li>
             <li>
                 <a href="/student/register">Add Student</a>
@@ -14,6 +14,9 @@
             </li>
             <li>
                 <a href="/interview/create">Add Interview</a>
+            </li>
+            <li>
+                <a href="/employee/sign-out">Sign Out</a>
             </li>
         <% } else { %>
                 <li>

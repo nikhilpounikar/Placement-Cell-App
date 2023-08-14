@@ -62,10 +62,8 @@ passport.checkAuthentication = function (req, res, next) {
 passport.setAuthenticatedUser = function (req, res, next) {
   // if the user aunthenticated set user info for view
   if (req.isAuthenticated()) {
-    //req.user contains current signed-in user
-    // setting this information for view
-    
-    res.locals.employee = req.employee;
+
+    res.locals.user = req.user;
   }
 
   next();

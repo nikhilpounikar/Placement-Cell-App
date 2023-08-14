@@ -1,8 +1,21 @@
 const Student = require("../models/Student");
 const Interview = require("../models/Interview");
 const Result = require("../models/Result");
-exports.getRegisterForm = function (req, res) {
-  return res.render("student_form", { title: "Placement Cell | Registration" });
+const Batch = require("../models/Batch");
+exports.getRegisterForm = async function (req, res) {
+
+  try{
+
+    let batch = await Batch.find();
+
+
+    return res.render("student_form", { title: "Placement Cell | Registration",batch });
+
+  }catch(error){
+    req.flash('error',"Error getting student registration form");
+    res.redirect('back');
+  }
+ 
 };
 
 exports.register = async function (req, res) {

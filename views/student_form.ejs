@@ -18,7 +18,7 @@
 
               <select id="status" name="status" required>
                   <option value="Placed">Placed</option>
-                  <option value="Not Placed">Not Placed</option>
+                  <option value="Not Placed" selected>Not Placed</option>
               </select>
           </div>
 
@@ -32,13 +32,11 @@
 
               <input type="number" placeholder="DSA Score" id="dsaScore" name="dsaScore" required>
             
-              <!-- <select id="batch" name="batch">
-
-                  <option value="Java">Java</option>
-                  <option value="Python">Python</option>
-                  <option value="C++">C++</option>
-                  <option value="Web Dev">Web Dev</option>
-              </select> -->
+              <select id="batch" name="batch">
+                    <% for(let currentBathc of batch) { %>
+                        <option value="<%= currentBathc._id%>"><%= currentBathc.name%></option>
+                    <% } %>
+              </select>
               <input type="submit" value="Submit">
           </div>
       </div>
