@@ -53,11 +53,11 @@ exports.login = async (req, res) => {
 
     // Store employee data in session or create a token for authentication
     req.flash("success", "Signed In Successfully!");
-    let dashboardData = await loadDashBoardData();
-    dashboardData.employee = employee ;
-    // Store employee data in session or create a token for authentication
-    console.log(dashboardData);
-    return res.render("dashboard", dashboardData);
+    // let dashboardData = await loadDashBoardData();
+    // dashboardData.employee = employee ;
+    // // Store employee data in session or create a token for authentication
+    // console.log(dashboardData);
+    return res.redirect("/");
 
   } catch (error) {
     console.error(error);

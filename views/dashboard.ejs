@@ -5,8 +5,8 @@
 <link rel="stylesheet" href="/css/home.css"> 
 <div id="main-container">
     <!-- Authenticate if user is loged in  -->
-    <h1>Dashboard  %></h1>
-    <td><%= locals.employee.toString() %></td>
+    <h1><%= locals.employee %></h1>
+    <% console.log(locals.employee) %>
 <% if (locals.employee){ %>
   
 <% if (locals.students){ %>

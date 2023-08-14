@@ -4,6 +4,7 @@ const Inteview = require("../models/Interview");
 
 module.exports.home = async function (req, res) {
   try {
+    console.log("Inside home controller");
     let students = await Student.find({})
       //.sort('-createdAt')
       .populate("batch")

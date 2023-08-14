@@ -19,7 +19,6 @@ passport.use(
           console.log("Invalid Username/Password");
           return done(null, false);
         }
-
         return done(null, employee);
       } catch (err) {
         req.flash("error", "Error Finding User ==> Passport");
