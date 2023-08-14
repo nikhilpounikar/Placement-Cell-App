@@ -1,1 +1,1 @@
-#main-container{display:flex;padding:10px;background-color:#59bdbd;width:100%}#main-container #feed-post{width:70%;padding:5px}#main-container #friend-list{width:30%;height:100%;padding:10px;border-left:2px solid grey}
+#main-container table{border-collapse:collapse;width:100%;border:1px solid #ddd}#main-container th,#main-container td{text-align:left;padding:8px}#main-container th{background-color:#f2f2f2}#main-container tr:nth-child(even){background-color:#f2f2f2}

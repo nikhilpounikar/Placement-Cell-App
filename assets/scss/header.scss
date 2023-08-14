@@ -6,4 +6,20 @@ header{
     background-color: aquamarine;
     width: 100%;
     justify-content: space-around;
+
+    ul{
+        list-style: none;
+    }
+}
+
+.navigation-menu{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    li{
+        text-decoration: none;
+    }
+   
+
 }

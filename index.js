@@ -24,18 +24,6 @@ const sassMiddleware = require("node-sass-middleware");
 const flash = require("connect-flash");
 const customMWare = require("./config/middleware");
 
-if (env.name != "production") {
-  // this sassMiddleware should be used before server startup so that it could compiled int0 css prior loading views
-  app.use(
-    sassMiddleware({
-      src: path.join(__dirname, env.asset_path, "scss"),
-      dest: path.join(__dirname, env.asset_path, "css"),
-      debug: true,
-      outputStyle: "extended",
-      prefix: "/css",
-    })
-  );
-}
 
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
@@ -44,8 +32,10 @@ app.use(express.static(env.asset_path));
 app.set("layout extractStyle ", true);
 app.set("layout extractScripts ", true);
 // Layouts Should be rendered before routing
-app.use(layouts);
 
+app.use(layouts);
+// For using the file in assets folder.
+app.use(express.static('./assets'));
 //set up the view engine
 app.set("view engine", "ejs");
 app.set("views", "./views");
