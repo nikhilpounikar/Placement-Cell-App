@@ -3,19 +3,17 @@ const Interview = require("../models/Interview");
 const Result = require("../models/Result");
 const Batch = require("../models/Batch");
 exports.getRegisterForm = async function (req, res) {
-
-  try{
-
+  try {
     let batch = await Batch.find();
 
-
-    return res.render("student_form", { title: "Placement Cell | Registration",batch });
-
-  }catch(error){
-    req.flash('error',"Error getting student registration form");
-    res.redirect('back');
+    return res.render("student_form", {
+      title: "Placement Cell | Registration",
+      batch,
+    });
+  } catch (error) {
+    req.flash("error", "Error getting student registration form");
+    res.redirect("back");
   }
- 
 };
 
 exports.register = async function (req, res) {
@@ -40,7 +38,9 @@ exports.register = async function (req, res) {
 
 exports.getInterviews = async function (req, res) {
   try {
-    let student = await Student.findById(req.params.id).populate("interviews").populate('results');
+    let student = await Student.findById(req.params.id)
+      .populate("interviews")
+      .populate("results");
 
     if (!student) {
       req.flash("error", "Student does not exits");
@@ -63,7 +63,7 @@ exports.getInterviews = async function (req, res) {
 exports.scheduleInterview = async function (req, res) {
   try {
     let student = await Student.findById(req.params.id);
-    
+
     if (!student) {
       req.flash("error", "Student does not exits");
       return res.redirect("back");
@@ -78,8 +78,8 @@ exports.scheduleInterview = async function (req, res) {
 
     let interview = await Interview.findById(req.body.interviewId);
     if (!interview) {
-        req.flash("error", "This Company has not scheduled any interviews");
-        return res.redirect("back");
+      req.flash("error", "This Company has not scheduled any interviews");
+      return res.redirect("back");
     }
 
     student.interviews.push(req.body.interviewId);
@@ -97,6 +97,41 @@ exports.scheduleInterview = async function (req, res) {
     await student.save();
 
     req.flash("success", "Interview Scheduled Successfully");
+    return res.redirect("back");
+  } catch (error) {
+    console.log(error);
+    req.flash("error", "Internal Server Error");
+    return res.redirect("back");
+  }
+};
+
+module.exports.renderStudentDataInCSV = async function (req, res) {
+  try {
+    let interviewList = await Interview.find().populate("students");
+
+    if (interviewList) {
+      if (interview.students.length > 0) {
+        try {
+          const csvData = await generateCSVForStudent(interviewList);
+          console.log(`CSV file generated for ${student.email}: ${filename}`);
+
+          res.setHeader("Content-Disposition", "attachment; filename=data.csv");
+          res.set("Content-Type", "text/csv");
+
+          // Send the CSV data in the response
+          res.status(200).send(csvData);
+
+          req.flash('success','data fetched successfully');
+          return;
+        } catch (error) {
+          req.flash('error','Error getting csv data');
+          
+        }
+      } else {
+        req.flash('error','Data not available');
+      }
+    }
+
     return res.redirect("back");
   } catch (error) {
     console.log(error);
