@@ -32,8 +32,8 @@ passport.use(
 
 // serialise the user to decide which key is to be kept in cookies
 // it is responsible for managing the cookie
-passport.serializeUser(function (employee, done) {
-  done(null, employee.id);
+passport.serializeUser(function (user, done) {
+  done(null, user.id);
 });
 
 // deserialising the user key in cookie
