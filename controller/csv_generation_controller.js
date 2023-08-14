@@ -2,7 +2,7 @@ const json2csv = require('json2csv').parse;
 const fs = require('fs-extra');
 
 // Function to generate CSV data for a student's interviews
-const generateCSVForStudent = async (interviews) => {
+module.exports.generateCSVForStudent = async function(interviews){
   try {
     const fields = ['Name', 'Email', 'Collage', 'Status', 'React Score', 'Web Development Score', 'DSA Score'];
 
@@ -10,7 +10,7 @@ const generateCSVForStudent = async (interviews) => {
 
     for (const interview of interviews) {
 
-        for(let student of interview.student){
+        for(let student of interview.students){
 
             let tempStudent = {
                 'Name': student.name,
@@ -23,11 +23,6 @@ const generateCSVForStudent = async (interviews) => {
               };
             data.push(tempStudent);
         }
-    //   data.push({
-    //     'Interview Date': interview.date,
-    //     'Interviewer': interview.interviewer,
-    //     'Result': interview.result,
-    //   });
     }
 
     const csv = json2csv(data, { fields });
@@ -46,4 +41,3 @@ const generateCSVForStudent = async (interviews) => {
   }
 };
 
-module.exports = generateCSVForStudent;

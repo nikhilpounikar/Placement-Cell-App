@@ -2,6 +2,7 @@ const Student = require("../models/Student");
 const Interview = require("../models/Interview");
 const Result = require("../models/Result");
 const Batch = require("../models/Batch");
+const csvParserController = require('./csv_generation_controller');
 exports.getRegisterForm = async function (req, res) {
   try {
     let batch = await Batch.find();
@@ -110,24 +111,22 @@ module.exports.renderStudentDataInCSV = async function (req, res) {
     let interviewList = await Interview.find().populate("students");
 
     if (interviewList) {
-      
-        try {
-          const csvData = await generateCSVForStudent(interviewList);
-          console.log(`CSV file generated for ${student.email}: ${filename}`);
+      try {
+        const csvData = await csvParserController.generateCSVForStudent(interviewList);
+       // console.log(`CSV file generated for ${student.email}: ${filename}`);
 
-          res.setHeader("Content-Disposition", "attachment; filename=data.csv");
-          res.set("Content-Type", "text/csv");
+        res.setHeader("Content-Disposition", "attachment; filename=data.csv");
+        res.set("Content-Type", "text/csv");
 
-          // Send the CSV data in the response
-          res.status(200).send(csvData);
+        // Send the CSV data in the response
+        res.status(200).send(csvData);
 
-          req.flash('success','data fetched successfully');
-          return;
-        } catch (error) {
-          req.flash('error','Error getting csv data');
-          
-       }
-     
+        req.flash("success", "data fetched successfully");
+        return;
+      } catch (error) {
+        console.log(error);
+        req.flash("error", "Error getting csv data");
+      }
     }
 
     return res.redirect("back");
