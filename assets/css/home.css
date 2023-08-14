@@ -1,4 +1,4 @@
-#main-container table {
+/* #main-container table {
   border-collapse: collapse;
   width: 100%;
   border: 1px solid #ddd; }
@@ -11,4 +11,49 @@
   background-color: #f2f2f2; }
 
 #main-container tr:nth-child(even) {
-  background-color: #f2f2f2; }
+  background-color: #f2f2f2; } 
+
+  /* dashboard.css */
+
+#main-container {
+  padding: 20px;
+}
+
+#main-container h1 {
+  color: #463ACB;
+}
+
+#main-container table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+#main-container thead {
+  background-color: #463ACB;
+  color: #ffffff;
+}
+
+#main-container th, td {
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+#main-container th {
+  background-color: #463ACB;
+  color: #ffffff;
+}
+
+#main-container a {
+  color: #463ACB;
+  text-decoration: none;
+  padding: 4px;
+  border-radius: 1px;
+}
+
+#main-container a:hover {
+  background-color: #463ACB;
+  color: white;
+  font-weight: bold;
+}

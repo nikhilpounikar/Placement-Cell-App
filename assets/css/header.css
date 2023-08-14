@@ -1,4 +1,4 @@
-header {
+/* header {
   display: flex;
   top: 0;
   border: 2px solid black;
@@ -17,4 +17,38 @@ header ul {
 }
 .navigation-menu li {
   text-decoration: none;
+} */
+
+header {
+  background-color: #463ACB;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.navigation-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation-menu li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.navigation-menu a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 6px 12px;
+  transition: color 0.3s;
+}
+
+/* Add a bit of padding and background on hover */
+.navigation-menu a:hover {
+  color: #311E94;
+  background-color: #ffffff;
+  /* padding: 6px 12px; */
+  text-decoration: none;
+  border-radius: 4px;
 }
