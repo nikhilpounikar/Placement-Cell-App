@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/register',studentController.register);
 // router.get('/sign-up',employeeController.register);
 
-router.get('/register',studentController.getRegisterForm);
+router.get('/register',passport.checkAuthentication,studentController.getRegisterForm);
 
 
 router.get('/interview/:id',studentController.getInterviews);

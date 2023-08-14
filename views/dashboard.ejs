@@ -6,6 +6,9 @@
 <div id="main-container">
     <!-- Authenticate if user is loged in  -->
     <h1>Dashboard  %></h1>
+    <td><%= locals.employee.toString() %></td>
+<% if (locals.employee){ %>
+  
 <% if (locals.students){ %>
 
     <table>
@@ -45,10 +48,13 @@
           <!-- Add more rows for other students -->
         </tbody>
       </table>
-<% }else{  %>
-
 <% }  %>
+
+<% }else{  %>
+    
+<%}%>
 </div>
+
 
 
 

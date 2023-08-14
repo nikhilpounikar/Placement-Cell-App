@@ -12,6 +12,8 @@ router.get('/sign-up',employeeController.signUp);
 
 router.get("/sign-in", employeeController.signIn);
   
-router.post("/sign-in", employeeController.login);
+router.post("/sign-in", passport.authenticate("local", { failureRedirect: "/employee/sign-in" }), employeeController.login);
+
+router.get("/sign-out", employeeController.destroySession);
 
 module.exports = router;
