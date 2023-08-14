@@ -1,0 +1,53 @@
+/* form-styles.css */
+
+/* Style for the batch registration form container */
+.batch-registration-form-container {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  /* Style for the heading inside the form container */
+  .batch-registration-form-container h1 {
+    color: #463ACB;
+    margin-top: 0;
+    font-size: 24px;
+  }
+  
+  /* Style for form labels */
+  .batch-registration-form-container label {
+    color: #463ACB;
+    font-weight: bold;
+  }
+  
+  /* Style for form inputs */
+  .batch-registration-form-container input[type="text"],
+  .batch-registration-form-container input[type="date"] {
+    display: block;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  /* Style for the submit button */
+  .batch-registration-form-container button[type="submit"] {
+    background-color: #463ACB;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  /* Hover effect for the submit button */
+  .batch-registration-form-container button[type="submit"]:hover {
+    background-color: #311E94;
+  }
+  
