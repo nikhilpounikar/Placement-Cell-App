@@ -25,7 +25,7 @@ module.exports.generateCSVForStudent = async function(interviews){
         }
     }
 
-    const csv = json2csv(data, { fields });
+    const csv = json2csv(data, { fields },);
 
     // Create a filename based on student's email
     const filename = `interviews.csv`;
@@ -33,7 +33,7 @@ module.exports.generateCSVForStudent = async function(interviews){
     // Write the CSV data to a file
     await fs.writeFile(filename, csv);
 
-    return csv;
+    return filename;
 
    // return filename;
   } catch (error) {

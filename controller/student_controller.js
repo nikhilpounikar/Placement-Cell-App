@@ -3,6 +3,8 @@ const Interview = require("../models/Interview");
 const Result = require("../models/Result");
 const Batch = require("../models/Batch");
 const csvParserController = require('./csv_generation_controller');
+const fs = require('fs-extra');
+
 exports.getRegisterForm = async function (req, res) {
   try {
     let batch = await Batch.find();
@@ -112,9 +114,9 @@ module.exports.renderStudentDataInCSV = async function (req, res) {
 
     if (interviewList) {
       try {
-        const csvData = await csvParserController.generateCSVForStudent(interviewList);
+        const filename = await csvParserController.generateCSVForStudent(interviewList);
        // console.log(`CSV file generated for ${student.email}: ${filename}`);
-
+        const csvData = await fs.readFile(filename,'utf-8')
         res.setHeader("Content-Disposition", "attachment; filename=data.csv");
         res.set("Content-Type", "text/csv");
 

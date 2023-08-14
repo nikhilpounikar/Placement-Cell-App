@@ -1,0 +1,26 @@
+.interview-list-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #463ACB;
+  }
+  h1 {
+    color: #463ACB;
+  }
+  a {
+    color: #463ACB;
+    text-decoration: none;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+  th, td {
+    border: 1px solid #463ACB;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #463ACB;
+    color: white;
+  }

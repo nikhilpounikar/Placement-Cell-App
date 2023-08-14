@@ -1,7 +1,7 @@
 const Interview = require("../models/Interview");
 
 // Route to display interview creation form
-module.exports.getInterviewForm =  async (req, res) => {
+module.exports.getInterviewForm = async (req, res) => {
   try {
     const students = await Student.find(); // Fetch available students from the database
     const results = await Result.find(); // Fetch available results from the database
@@ -12,31 +12,49 @@ module.exports.getInterviewForm =  async (req, res) => {
   }
 };
 
-module.exports.getInterviewForm =  async (req, res) => {
-  
-  return res.render('interview_form');
+module.exports.getInterviewForm = async (req, res) => {
+  return res.render("interview_form");
 };
 
 // Route to handle interview creation form submission
-module.exports.addInterview =  async (req, res) => {
+module.exports.addInterview = async (req, res) => {
   try {
-   
-    let interview = await Interview.findOne({companyName:req.body.companyName,date:req.body.date});
+    let interview = await Interview.findOne({
+      companyName: req.body.companyName,
+      date: req.body.date,
+    });
 
-    if(interview){
-      req.flash('error','Interview already scheduled on this date');
-      return res.redirect('back');
+    if (interview) {
+      req.flash("error", "Interview already scheduled on this date");
+      return res.redirect("back");
     }
 
     await Interview.create(req.body);
 
-    req.flash('success',"Interview Scheduled Successfully");
-    return res.redirect('/');
-
+    req.flash("success", "Interview Scheduled Successfully");
+    return res.redirect("back");
   } catch (error) {
     console.error(error);
-    req.flash('error','Internal Server Error');
-    return res.redirect('back');
+    req.flash("error", "Internal Server Error");
+    return res.redirect("back");
   }
 };
 
+module.exports.getInterviewList = async function (req, res) {
+  try {
+    let interviews = await Interview.find();
+
+    if (!interviews) {
+      req.flash("success", "Data does not available");
+      return res.redirect("back");
+    }
+
+    return res.render("interview_table", {
+      interviews: interviews,
+    });
+  } catch (error) {
+    console.error(error);
+    req.flash("error", "Internal Server Error");
+    return res.redirect("back");
+  }
+};

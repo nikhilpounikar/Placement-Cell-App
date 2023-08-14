@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="/css/interview_list.css">
+
+<div class="interview-list-container">
+
+
+  <div>
+    <h1>Interview List</h1>
+    <a href="/interview/create">Add Interview</a>
+  </div>
+  <%console.log(interviews) %>
+    <% if(locals.interviews) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Company Name</th>
+            <th>Date</th>
+            <th>Number of Students</th>
+            <th>Results</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% locals.interviews.forEach((interview)=> { %>
+            <tr>
+              <td>
+                <%= interview.companyName %>
+              </td>
+              <td>
+                <%= interview.date.toDateString() %>
+              </td>
+              <td>
+                <%= interview.students.length %>
+              </td>
+              <td>
+                <% if (interview.results.length> 0) { %>
+                  <a href="/interview/<%= interview._id %>/results">View Results</a>
+                  <% } else { %>
+                    No Results
+                    <% } %>
+              </td>
+            </tr>
+            <% }); %>
+        </tbody>
+
+      </table>
+      <% }; %>
+</div>
