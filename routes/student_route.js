@@ -13,7 +13,7 @@ router.get('/register',passport.checkAuthentication,studentController.getRegiste
 
 router.get('/interview/:id',passport.checkAuthentication,studentController.getInterviews);
 router.post('/schedule-interview/:id',passport.checkAuthentication,studentController.scheduleInterview);
-router.post('/render-csv-data/',passport.checkAuthentication,studentController.renderStudentDataInCSV);
+router.get('/render-csv-data',passport.checkAuthentication,studentController.renderStudentDataInCSV);
 // router.get("/sign-in", employeeController.signIn);
   
 // router.post("/sign-in", employeeController.login);

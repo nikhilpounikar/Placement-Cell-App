@@ -110,7 +110,7 @@ module.exports.renderStudentDataInCSV = async function (req, res) {
     let interviewList = await Interview.find().populate("students");
 
     if (interviewList) {
-      if (interview.students.length > 0) {
+      
         try {
           const csvData = await generateCSVForStudent(interviewList);
           console.log(`CSV file generated for ${student.email}: ${filename}`);
@@ -126,10 +126,8 @@ module.exports.renderStudentDataInCSV = async function (req, res) {
         } catch (error) {
           req.flash('error','Error getting csv data');
           
-        }
-      } else {
-        req.flash('error','Data not available');
-      }
+       }
+     
     }
 
     return res.redirect("back");
