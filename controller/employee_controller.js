@@ -21,11 +21,13 @@ exports.register = async (req, res) => {
     const newEmployee = new Employee({ name, email, password, role });
     await newEmployee.save();
     req.flash("success", "Thanks for Registration");
-    
-    let dashboardData =  await loadDashBoardData();
-    dashboardData.employee = newEmployee ;
-    // Store employee data in session or create a token for authentication
-    return res.render("dashboard", dashboardData);
+    // Log in the user and redirect to the dashboard
+    req.login(newEmployee, err => {
+      if (err) {
+        return next(err);
+      }
+      return res.redirect('/'); // Change this to your dashboard route
+    });
   } catch (error) {
     console.error(error);
     req.flash("error", "Interval Server Error");
@@ -53,10 +55,7 @@ exports.login = async (req, res) => {
 
     // Store employee data in session or create a token for authentication
     req.flash("success", "Signed In Successfully!");
-    // let dashboardData = await loadDashBoardData();
-    // dashboardData.employee = employee ;
-    // // Store employee data in session or create a token for authentication
-    // console.log(dashboardData);
+    
     return res.redirect("/");
 
   } catch (error) {
