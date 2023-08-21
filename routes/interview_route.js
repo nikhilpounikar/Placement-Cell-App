@@ -8,5 +8,7 @@ const router = express.Router();
 router.get("/create",passport.checkAuthentication,interviewController.getInterviewForm);
 router.post("/create",passport.checkAuthentication, interviewController.addInterview);
 router.get("/view",passport.checkAuthentication,interviewController.getInterviewList);
+router.get("/get-students/:id",passport.checkAuthentication,interviewController.getStudentList);
+
 
 module.exports = router;

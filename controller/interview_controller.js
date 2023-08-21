@@ -58,3 +58,34 @@ module.exports.getInterviewList = async function (req, res) {
     return res.redirect("back");
   }
 };
+
+module.exports.getStudentList = async function(req,res){
+
+  try {
+
+    const id = req.params.id;
+
+    if(!id){
+      req.flash("error", "Interview Reference Missing");
+      return res.redirect('back');
+    }
+
+    let interview = await Interview.findById(id)
+    .populate('students')
+    .populate('results');
+    
+    if (!interview) {
+      req.flash("error", "Interview Data not available.");
+      return res.redirect("back");
+    }
+
+    return res.render("student_table_by_interview", {
+     interview
+    });
+  } catch (error) {
+    console.error(error);
+    req.flash("error", "Internal Server Error");
+    return res.redirect("back");
+  }
+
+}

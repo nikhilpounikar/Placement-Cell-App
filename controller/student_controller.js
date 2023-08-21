@@ -92,7 +92,7 @@ exports.scheduleInterview = async function (req, res) {
       interview: req.body.interviewId,
       status: "Scheduled",
     });
-
+    interview.students.push(req.params.id);
     interview.results.push(result._id);
     student.results.push(result._id);
 

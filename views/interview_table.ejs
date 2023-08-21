@@ -15,6 +15,7 @@
             <th>Company Name</th>
             <th>Date</th>
             <th>Number of Students</th>
+            <th>Students</th>
             <th>Results</th>
           </tr>
         </thead>
@@ -29,6 +30,9 @@
               </td>
               <td>
                 <%= interview.students.length %>
+              </td>
+              <td>
+                <a href="/interview/get-students/<%= interview._id %>">View</a>
               </td>
               <td>
                 <% if (interview.results.length> 0) { %>
