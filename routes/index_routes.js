@@ -14,7 +14,7 @@ router.use('/employee',require('./employee_route'));
 router.use('/student',require('./student_route'));
 router.use('/batch',require('./batch_route'));
 router.use('/interview',require('./interview_route'));
-router.use('/interview',require('./result_route'));
+router.use('/result',require('./result_route'));
 //router.use('/user',require('./userRoute'));
 
 module.exports = router;
