@@ -1,5 +1,128 @@
-<div>
+<%# I am some comment! %>
+    <!-- Code for Layouts -->
+    <!-- <link rel="stylesheet" href="/css/home.css">-->
+    <link rel="stylesheet" href="/css/home.css">
+    <div id="loader">
 
-    <%= console.log('interview by student',interview) %>
+        <span>Loading...</span>
 
-</div>
+    </div>
+    <div id="main-container">
+        <!-- Authenticate if user is loged in  -->
+
+        <% if (locals.interview && locals.interview.students){ %>
+            <h2>Student List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>College</th>
+                        <th>Status</th>
+                        <th>React Score</th>
+                        <th>Web Development Score</th>
+                        <th>DSA Score</th>
+                        <th>Batch</th>
+                        <th>Interview Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let student of locals.interview.students){ %>
+
+
+                        <!-- Replace with dynamic student data from your server/database -->
+                        <tr>
+                            <td>
+                                <%= student.name %>
+                            </td>
+                            <td>
+                                <%= student.email %>
+                            </td>
+                            <td>
+                                <%= student.collage %>
+                            </td>
+                            <td>
+                                <%= student.status %>
+                            </td>
+                            <td>
+                                <%= student.reactScore %>
+                            </td>
+                            <td>
+                                <%= student.webDevelopmentScore %>
+                            </td>
+                            <td>
+                                <%= student.dsaScore %>
+                            </td>
+                            <td>
+                                <%= student.batch ? student.batch.name : 'NA' %>
+                            </td>
+
+                            <% for(let result of locals.interview.results){ %>
+                                <% if (result.student.toString()==student._id.toString()) { %>
+                                    <td>
+                                        <select onchange="updateStatus(this,'<%= result._id %>')">
+                                            <option value="Pass" <%=result.status=='Pass' ? "selected" : '' %>>Pass
+                                            </option>
+                                            <option value="Fail" <%=result.status=='Fail' ? "selected" : '' %>>Fail
+                                            </option>
+                                            <option value="On Hold" <%=result.status=='On Hold' ? "selected" : '' %>>On
+                                                Hold</option>
+                                            <option value="Abstain" <%=result.status=='Abstain' ? "selected" : '' %>
+                                                >Abstain</option>
+                                            <option value="Scheduled" <%=result.status=='Scheduled' ? "selected" : '' %>
+                                                >Scheduled</option>
+                                        </select>
+
+                                    </td>
+                                    <% } %>
+                                        <% } %>
+                        </tr>
+                        <% } %>
+                            <!-- Add more rows for other students -->
+                </tbody>
+            </table>
+            <% } %>
+
+
+    </div>
+
+    <script>
+        function updateStatus(event, resultId) {
+
+            const resultStatus = event.value;
+
+
+            let loader = document.getElementById('loader');
+
+            // Show loader
+            loader.style.display = 'flex';
+            loader.style.justifyContent = 'center';
+            loader.style.alignItems = 'center';
+
+            fetch(`/result/updateStatus/` + resultId, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    newStatus: resultStatus,
+                }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    loader.style.display = 'none';
+                    if (data.success) {
+                        // Update the UI or perform any necessary actions
+
+                    } else {
+                        console.error('Failed to update status');
+                    }
+                })
+                .catch(error => {
+                    loader.style.display = 'none';
+                    console.error('Error occurred:', error);
+                });
+        }
+
+
+    </script>

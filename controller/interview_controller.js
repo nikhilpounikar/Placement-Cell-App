@@ -71,7 +71,13 @@ module.exports.getStudentList = async function(req,res){
     }
 
     let interview = await Interview.findById(id)
-    .populate('students')
+    .populate({
+      path:'students',
+      populate: {
+        path: "batch", // Populate the 'batch' field in 'students'
+        model: "Batch",     // Use the 'Batch' model for populating 'batch'
+      },
+    })
     .populate('results');
     
     if (!interview) {
