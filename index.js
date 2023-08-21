@@ -15,6 +15,10 @@ const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require("./config/passport_local_strategy");
 const passportJwt = require("./config/passport_jwt");
+
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
 //get mongostore config
 const MongoStore = require("connect-mongo")(session);
 

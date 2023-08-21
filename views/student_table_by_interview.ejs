@@ -91,7 +91,6 @@
 
             const resultStatus = event.value;
 
-
             let loader = document.getElementById('loader');
 
             // Show loader
@@ -105,18 +104,18 @@
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    newStatus: resultStatus,
+                    "newStatus": resultStatus,
                 }),
             })
-                .then(response => response.json())
+               
                 .then(data => {
                     loader.style.display = 'none';
-                    if (data.success) {
-                        // Update the UI or perform any necessary actions
+                    // if (data.success) {
+                    //     // Update the UI or perform any necessary actions
 
-                    } else {
-                        console.error('Failed to update status');
-                    }
+                    // } else {
+                    //     console.error('Failed to update status');
+                    // }
                 })
                 .catch(error => {
                     loader.style.display = 'none';
