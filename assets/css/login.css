@@ -37,15 +37,3 @@
   button:hover {
     background-color: #311E94;
   }
-  
-  a {
-    display: block;
-    text-align: center;
-    margin-top: 16px;
-    color: #463ACB;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }

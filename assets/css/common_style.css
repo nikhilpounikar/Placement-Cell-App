@@ -1,0 +1,54 @@
+:root{
+    --activeLightColor:#d7f8ed;
+    --activeColor:#67d9b4;
+}
+table {
+  width: 90vw;
+  margin: 0px auto;
+  border: none;
+  border-collapse: collapse;
+  border-radius: 3px;
+}
+
+thead {
+  background-color: var(--themeColor);
+  height: 35px;
+  color: white;
+}
+
+th,
+td {
+  padding: 8px 4px;
+}
+
+th,td{
+    height: 30px;
+}
+
+.table-container {
+  /* max-width: 800px; */
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--darkShadow);
+}
+
+tr:nth-child(even) {
+  background-color: var(--lightColor);
+}
+
+tbody tr:hover {
+    background-color: var(--activeLightColor);
+}
+
+.heading-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    align-items: center;
+    width: 90vw;
+    margin: 0px auto;
+}

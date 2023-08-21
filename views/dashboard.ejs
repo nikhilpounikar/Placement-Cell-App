@@ -2,15 +2,21 @@
 <%# I am some comment! %>
 <!-- Code for Layouts -->
 <!-- <link rel="stylesheet" href="/css/home.css">-->
-<link rel="stylesheet" href="/css/home.css"> 
-<div id="main-container">
+
+<div id="main-container" class="table-container">
     <!-- Authenticate if user is loged in  -->
     
 <% if (locals.employee){ %>
   
 <% if (locals.students){ %>
-  <h2>Student List</h2>
-  <a href="/student/render-csv-data">Download Student Data</a>
+  <div class="heading-container">
+    <h2>Student List</h2>
+    <div class="anchor-container anchor-container-dark">
+      <a href="/student/render-csv-data">Download Student Data</a>
+    </div>
+    
+  </div>
+ 
     <table>
         <thead>
           <tr>
@@ -40,8 +46,11 @@
             <td><%= student.dsaScore %></td>
             <td>
                 <%= student.batch ? student.batch.name : 'NA'  %></td>
-            <td>
+            <td >
+              <div class="anchor-container anchor-container-light">
                 <a href="/student/interview/<%=student._id%>">View</a>
+
+              </div>
             </td>
           </tr>
           <% } %>
