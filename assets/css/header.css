@@ -1,17 +1,15 @@
-
-:root{
---themeColor:#4b3fcc;
---lightColor:#9593bb45;
---lightBoxShadow :  0px 0px 12px rgb(233 225 225);
---darkShadow :  0px 0px 12px rgb(42 40 40 / 79%);;
+:root {
+  --themeColor: #4b3fcc;
+  --lightColor: #9593bb45;
+  --lightBoxShadow: 0px 0px 12px rgb(233 225 225);
+  --darkShadow: 0px 0px 12px rgb(42 40 40 / 79%);
 }
 
-body{
-  
+body {
   font-family: sans-serif;
-} 
+}
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -24,64 +22,66 @@ header {
   color: white;
 }
 
-header div{
+header div {
   margin: 10px;
 }
 
-.left-side{
-  margin-left:20px ;
+.left-side {
+  margin-left: 20px;
 }
-.left-side,.right-side{
+.left-side,
+.right-side {
   font-weight: bold;
 }
 
-.right-side{
+.right-side {
   font-size: smaller;
   text-align: center;
-  margin-right:20px ;
+  margin-right: 20px;
 }
 
-.middle-side{
+.middle-side {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.anchor-container{
+.anchor-container {
   background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2px;
-    padding: 8px 8px;
-    box-shadow: var(--lightBoxShadow);
-    font-size: 15px;
-    font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  padding: 8px 8px;
+  box-shadow: var(--lightBoxShadow);
+  font-size: 15px;
+  font-weight: bold;
+  min-width: 60px;
 }
 
-.anchor-container-dark{
+.anchor-container-dark {
   background-color: var(--themeColor);
   box-shadow: var(--darkShadow);
 }
 
-.anchor-container-light{
+.anchor-container-light {
   background-color: var(--activeLightColor);
   border: 1px solid var(--activeColor);
-  box-shadow:none;
+  box-shadow: none;
   padding: 4px 4px;
 }
 
-.anchor-container-light:hover{
+.anchor-container-light:hover {
   background-color: var(--lightColor);
   border: 1px solid var(--themeColor);
   color: var(--themeColor);
 }
 
-.anchor-container-light a{
+.anchor-container-light a {
   color: var(--themeColor);
 }
 
-.anchor-container-dark a{
+.anchor-container-dark a {
   color: white;
 }
 
@@ -100,14 +100,16 @@ header div{
 
 /* Add a bit of padding and background on hover */
 .navigation-menu a:hover {
-  color: #311E94;
+  color: #311e94;
   background-color: #ffffff;
   /* padding: 6px 12px; */
   text-decoration: none;
   border-radius: 4px;
 }
 
-td:last-child{
+td:last-child {
   padding: 4px 12px;
   margin-right: 4px;
+  display: flex;
+  justify-content: center;
 }

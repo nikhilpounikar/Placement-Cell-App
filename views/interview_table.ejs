@@ -1,11 +1,13 @@
-<link rel="stylesheet" href="/css/interview_list.css">
+<!-- <link rel="stylesheet" href="/css/interview_list.css"> -->
 
-<div class="interview-list-container">
+<div class="table-container">
 
 
-  <div>
-    <h1>Interview List</h1>
-    <a href="/interview/create">Add Interview</a>
+  <div class="heading-container">
+    <h2>Interview List</h2>
+    <div class="anchor-container anchor-container-dark">
+      <a href="/interview/create">Add Interview</a>
+    </div>
   </div>
   <%console.log(interviews) %>
     <% if(locals.interviews) { %>
@@ -31,7 +33,10 @@
                 <%= interview.students.length %>
               </td>
               <td>
-                <a href="/interview/get-students/<%= interview._id %>">View</a>
+                <div class="anchor-container anchor-container-light">
+                  <a href="/interview/get-students/<%= interview._id %>">View</a>
+                </div>
+                
               </td>
             </tr>
             <% }); %>
