@@ -29,7 +29,6 @@ passport.use(
   )
 );
 
-
 // serialise the user to decide which key is to be kept in cookies
 // it is responsible for managing the cookie
 passport.serializeUser(function (user, done) {
@@ -61,7 +60,6 @@ passport.checkAuthentication = function (req, res, next) {
 passport.setAuthenticatedUser = function (req, res, next) {
   // if the user aunthenticated set user info for view
   if (req.isAuthenticated()) {
-
     res.locals.user = req.user;
   }
 

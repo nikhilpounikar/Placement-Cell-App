@@ -2,8 +2,8 @@ const Student = require("../models/Student");
 const Interview = require("../models/Interview");
 const Result = require("../models/Result");
 const Batch = require("../models/Batch");
-const csvParserController = require('./csv_generation_controller');
-const fs = require('fs-extra');
+const csvParserController = require("./csv_generation_controller");
+const fs = require("fs-extra");
 
 exports.getRegisterForm = async function (req, res) {
   try {
@@ -110,20 +110,21 @@ exports.scheduleInterview = async function (req, res) {
 
 module.exports.renderStudentDataInCSV = async function (req, res) {
   try {
-    let students = await Student.find()
-                              .populate({
-                                path:"interviews",
-                                populate:{
-                                  path:"results",
-                                  model:"Result"
-                                }
-                              });
+    let students = await Student.find().populate({
+      path: "interviews",
+      populate: {
+        path: "results",
+        model: "Result",
+      },
+    });
 
     if (students) {
       try {
-        const filename = await csvParserController.generateCSVForStudent(students);
-       // console.log(`CSV file generated for ${student.email}: ${filename}`);
-        const csvData = await fs.readFile(filename,'utf-8')
+        const filename = await csvParserController.generateCSVForStudent(
+          students
+        );
+        // console.log(`CSV file generated for ${student.email}: ${filename}`);
+        const csvData = await fs.readFile(filename, "utf-8");
         res.setHeader("Content-Disposition", "attachment; filename=data.csv");
         res.set("Content-Type", "text/csv");
 
