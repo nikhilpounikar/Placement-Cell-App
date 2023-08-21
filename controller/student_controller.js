@@ -110,11 +110,18 @@ exports.scheduleInterview = async function (req, res) {
 
 module.exports.renderStudentDataInCSV = async function (req, res) {
   try {
-    let interviewList = await Interview.find().populate("students");
+    let students = await Student.find()
+                              .populate({
+                                path:"interviews",
+                                populate:{
+                                  path:"results",
+                                  model:"Result"
+                                }
+                              });
 
-    if (interviewList) {
+    if (students) {
       try {
-        const filename = await csvParserController.generateCSVForStudent(interviewList);
+        const filename = await csvParserController.generateCSVForStudent(students);
        // console.log(`CSV file generated for ${student.email}: ${filename}`);
         const csvData = await fs.readFile(filename,'utf-8')
         res.setHeader("Content-Disposition", "attachment; filename=data.csv");
