@@ -3,15 +3,66 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     height: 100vh;
-    background-color:#98AAE4;
+    background-color: #98AAE4;
     background-image: linear-gradient(to bottom, #98C4EA, #98AAE4);
 }
 
-.full-height{
+.full-height {
 
     height: 100%;
 }
 
-table{
+table {
     background-color: white;
+    max-width: 90%;
+}
+
+/* Apply styles to the container */
+.container {
+    max-width: 400px;
+    margin: 75px auto;
+    padding: 20px;
+    
+    border: 2px solid #463ACB;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+/* Apply styles to the form */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Apply styles to labels */
+label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Apply styles to inputs and select */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    padding: 8px;
+    margin-top: 5px;
+    border-bottom: 1px solid #463ACB;
+   
+}
+
+/* Apply styles to submit button */
+button[type="submit"] {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #463ACB;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Apply styles to the h2 heading */
+h2 {
+    color: #463ACB;
 }

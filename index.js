@@ -18,8 +18,6 @@ const passportJwt = require("./config/passport_jwt");
 //get mongostore config
 const MongoStore = require("connect-mongo")(session);
 
-// get sass middleware
-const sassMiddleware = require("node-sass-middleware");
 
 const flash = require("connect-flash");
 const customMWare = require("./config/middleware");
