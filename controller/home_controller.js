@@ -16,7 +16,6 @@ module.exports.home = async function (req, res) {
   // Fetching the user and review from the form
   let employee = await Employee.findById(req.user.id);
 
-    console.log("Inside home controller");
     let students = await Student.find({})
       //.sort('-createdAt')
       .populate("batch")
