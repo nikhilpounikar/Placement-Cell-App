@@ -6,7 +6,6 @@ const app = express();
 
 const port = 8000;
 const layouts = require("express-ejs-layouts");
-const env = require("./config/environment");
 
 const db = require("./config/mongoose");
 
@@ -14,7 +13,6 @@ const db = require("./config/mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require("./config/passport_local_strategy");
-const passportJwt = require("./config/passport_jwt");
 
 const bodyParser = require('body-parser');
 
@@ -29,7 +27,7 @@ const customMWare = require("./config/middleware");
 
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(env.asset_path));
+app.use(express.static('./assests'));
 //puts styles and script to respective postion i.e in head and end the body respectively
 app.set("layout extractStyle ", true);
 app.set("layout extractScripts ", true);
@@ -47,7 +45,7 @@ app.use(
   session({
     name: "Placement Cell",
     // TODO change the secret before deployment in production mode
-    secret: env.session_cookie_key,
+    secret: 'nikhil_pounikar',
     saveUninitialized: false,
     resave: false,
     cookie: {
