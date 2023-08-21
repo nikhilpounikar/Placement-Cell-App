@@ -1,5 +1,6 @@
 const Interview = require("../models/Interview");
 const Result = require('../models/Result');
+const Student = require('../models/Student');
 
 module.exports.updateResult = async function(req,res){
 
@@ -18,12 +19,25 @@ module.exports.updateResult = async function(req,res){
         req.flash("error", "Result does not exits");
         return res.redirect('back');
     }
-    console.log(req.body);
+
+
     result.status = req.body.newStatus;
-    console.log(result);
     await result.save();
+
+    if(req.body.newStatus == 'Pass'){
+        
+        let student = await Student.findById(result.student);
+
+        if(student){
+            student.status = 'Placed';
+
+            await student.save();
+        }
+
+    }
+
     req.flash("success", "interview Result Updated");
-    return res.redirect('back');
+    return res.json({ success: true });
   } catch (error) {
     console.error(error);
     req.flash("error", "Internal Server Error");
