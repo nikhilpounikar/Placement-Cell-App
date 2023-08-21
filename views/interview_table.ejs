@@ -16,7 +16,6 @@
             <th>Date</th>
             <th>Number of Students</th>
             <th>Students</th>
-            <th>Results</th>
           </tr>
         </thead>
         <tbody>
@@ -33,13 +32,6 @@
               </td>
               <td>
                 <a href="/interview/get-students/<%= interview._id %>">View</a>
-              </td>
-              <td>
-                <% if (interview.results.length> 0) { %>
-                  <a href="/interview/<%= interview._id %>/results">View Results</a>
-                  <% } else { %>
-                    No Results
-                    <% } %>
               </td>
             </tr>
             <% }); %>

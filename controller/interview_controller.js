@@ -32,7 +32,7 @@ module.exports.addInterview = async (req, res) => {
     await Interview.create(req.body);
 
     req.flash("success", "Interview Scheduled Successfully");
-    return res.redirect("back");
+    return res.redirect("/interview/view");
   } catch (error) {
     console.error(error);
     req.flash("error", "Internal Server Error");
