@@ -1,9 +1,8 @@
 //require the library
 const mongoose = require('mongoose');
-const env = require('./environment');
 
 //connect to the database
-mongoose.connect('mongodb://127.0.0.1/'+env.db);
+mongoose.connect('mongodb://127.0.0.1/Placement_Cell_DB');
 
 //acquire the connection(to check if it's successful)
 const db = mongoose.connection;
