@@ -162,3 +162,9 @@ input[type="date"]::-webkit-datetime-edit-day-field,
 input[type="date"]::-webkit-datetime-edit-year-field {
   color: transparent;
 }
+
+.form-button-container{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}

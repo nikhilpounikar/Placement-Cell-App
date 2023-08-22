@@ -5,7 +5,7 @@ const batchController = require("../controller/batch_controller");
 
 const router = express.Router();
 
-router.get("/create-batch", batchController.createBatch);
-router.post("/create-batch", batchController.addBatch);
+router.get("/create-batch",passport.checkAuthentication, batchController.createBatch);
+router.post("/create-batch", passport.checkAuthentication, batchController.addBatch);
 
 module.exports = router;
