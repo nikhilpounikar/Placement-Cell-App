@@ -1,7 +1,7 @@
 :root {
   --activeLightColor: #d7f8ed;
   --activeColor: #67d9b4;
-
+  --blueThemeColor:#0a58ca;
 }
 
 table {
@@ -337,4 +337,30 @@ select option[disabled]{
   display: block;
 }
 
+.student-interview-table-container{
+  padding: 20px 0px;
+}
 
+.student-interview-table-container h3{
+  color: var(--themeColor);
+}
+
+.student-interview-container {
+  max-width: 400px;
+  margin: 75px auto;
+  padding: 20px;
+  /* border: 2px solid #463ACB; */
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: var(--darkShadow);
+
+}
+.student-interview-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.table-heading-container{
+  border-bottom: 3px dashed var(--blueThemeColor); 
+}

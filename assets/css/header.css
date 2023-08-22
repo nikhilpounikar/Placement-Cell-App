@@ -73,12 +73,12 @@ header div {
 
 .anchor-container-light:hover {
   background-color: var(--lightColor);
-  border: 1px solid var(--themeColor);
+  border: 1px solid var(--blueThemeColor);
   color: var(--themeColor);
 }
 
 .anchor-container-light a {
-  color: var(--themeColor);
+  color: var(--blueThemeColor);
 }
 
 .anchor-container-dark a {
@@ -100,7 +100,7 @@ header div {
 
 /* Add a bit of padding and background on hover */
 .navigation-menu a:hover {
-  color: #311e94;
+ 
   background-color: #ffffff;
   /* padding: 6px 12px; */
   text-decoration: none;
@@ -108,8 +108,8 @@ header div {
 }
 
 td:last-child {
-  padding: 4px 12px;
   margin-right: 4px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }

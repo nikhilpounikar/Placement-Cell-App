@@ -1,29 +1,15 @@
 /* student_interview.css */
 
 /* Apply styles to the entire container */
-.student-interview-container {
-  max-width: 400px;
-  margin: 75px auto;
-  padding: 20px;
-  border: 2px solid #463ACB;
-  border-radius: 10px;
-  background-color: #fff;
-}
 
-/* Apply styles to the heading */
-.student-interview-container h1 {
+
+/* .student-interview-container h1 {
   color: #463ACB;
   margin-bottom: 20px;
 }
 
-/* Apply styles to the table */
-.student-interview-container table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
 
-/* Apply styles to table headers */
+
 .student-interview-container th {
   background-color: #463ACB;
   color: #fff;
@@ -31,38 +17,24 @@
   text-align: left;
 }
 
-/* Apply styles to table cells */
 .student-interview-container td {
   padding: 10px;
   border: 1px solid #463ACB;
 }
 
-/* Apply styles to the form section */
 .student-interview-container form {
   margin-top: 20px;
 }
 
-/* Apply styles to form labels */
 .student-interview-container label {
   font-weight: bold;
   color: #463ACB;
 }
 
-/* Apply styles to form select */
 .student-interview-container select {
   padding: 8px;
   margin-top: 5px;
   border: 1px solid #463ACB;
   border-radius: 5px;
-}
+} */
 
-/* Apply styles to form submit button */
-.student-interview-container button[type="submit"] {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #463ACB;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}

@@ -3,61 +3,70 @@
 
   <% if (locals.student){ %>
     <% interviewResults = student.results %>
-    <h1>
-      <%= student.name %>
-    </h1>
+    <div class="heading-container table-heading-container" style="text-align: center; width: 100%;">
+      <h2>
+        Name : <span style="color: #0a58ca;;"><%= student.name %></span>
+      </h2>
+    </div>
+    
+    <div class="table-container student-interview-table-container">
 
-    <table>
-      <thead>
-        <tr>
-          <th>Company Name</th>
-          <th>Date</th>
-          <th>Result</th>
-        </tr>
-      </thead>
-      <tbody>
+      <div class="heading-container">
+        <h3>Inteview List</h3>
+      </div>
 
-        <% for(let interview of student.interviews){ %>
-          <!-- Replace with dynamic interview data from your server/database -->
-
-          <%const dateString=interview.date ; 
-          const date=new Date(dateString); 
-          const formattedDate=`${date.getFullYear()}-${(date.getMonth() +1).toString().padStart(2, '0' )}-${date.getDate().toString().padStart(2, '0' )}`; 
-          
-          let interviewStatus;
-
-          for(let result of interviewResults){
-            if(result.interview.toString() === interview._id.toString() ){
-              interviewStatus = result.status;
-            }
-          }
-
+      <table>
+        <thead>
+          <tr>
+            <th>Company Name</th>
+            <th>Date</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+  
+          <% for(let interview of student.interviews){ %>
+            <!-- Replace with dynamic interview data from your server/database -->
+  
+            <%const dateString=interview.date ; 
+            const date=new Date(dateString); 
+            const formattedDate=`${date.getFullYear()}-${(date.getMonth() +1).toString().padStart(2, '0' )}-${date.getDate().toString().padStart(2, '0' )}`; 
             
-          %>
-
-
-            <tr>
-              <td>
-                <%= interview.companyName %>
-              </td>
-              <td>
-                <%= formattedDate %>
-              </td>
-              <td>
-                <%= interviewStatus %>
-              </td>
-            </tr>
-            <% } %>
-              <!-- Add more rows for other interviews -->
-      </tbody>
-    </table>
-
-    <div>
-      <form action="/student/schedule-interview/<%= student._id %>" method="POST">
+            let interviewStatus;
+  
+            for(let result of interviewResults){
+              if(result.interview.toString() === interview._id.toString() ){
+                interviewStatus = result.status;
+              }
+            }
+  
+              
+            %>
+  
+  
+              <tr>
+                <td>
+                  <%= interview.companyName %>
+                </td>
+                <td>
+                  <%= formattedDate %>
+                </td>
+                <td>
+                  <%= interviewStatus %>
+                </td>
+              </tr>
+              <% } %>
+                <!-- Add more rows for other interviews -->
+        </tbody>
+      </table>
+    </div>
+    
+    
+    <div class="form-container">
+      <form class="form" action="/student/schedule-interview/<%= student._id %>" method="POST">
         <!-- Replace ":studentId" with the actual student's ID -->
 
-        <label for="interview">Select Interview:</label>
-        <select id="interview" name="interviewId" required>
+        <select class="result-select" id="interview" name="interviewId" required>
           <option value="" disabled selected>Select an interview</option>
 
           <% for(let interview of locals.interviews){ %>
@@ -67,9 +76,10 @@
             </option>
             <% } %>
               <!-- Add more options as needed -->
-        </select><br><br>
-
-        <button type="submit">Schedule Interview</button>
+        </select>
+        <div class="form-button-container">
+          <div class='btn-light'><button type="submit">Schedule</button></div>
+      </div>
       </form>
     </div>
 
