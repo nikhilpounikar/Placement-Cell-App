@@ -1,6 +1,10 @@
-<link rel="stylesheet" href="/css/batch_form.css"> 
-<div class="batch-registration-form-container">
-  <h1>Create Batch</h1>
+<link rel="stylesheet" href="/css/batch_form.css">
+<!-- <div class="batch-registration-form-container">
+
+  <div class="heading-container">
+    <h2>Create Batch</h2>  
+  </div>
+ 
   <form action="/batch/create-batch" method="POST">
     <label for="name">Batch Name:</label>
     <input type="text" id="name" name="name" required><br><br>
@@ -14,4 +18,31 @@
     <button type="submit">Create Batch</button>
   </form>
 
+</div> -->
+<div class="form-page-container">
+  <div class="form-container">
+
+    <div class="heading-container">
+      <h2 class="form-heading">Create Batch</h2>
+    </div>
+
+    <form action="/batch/create-batch" method="POST" class="form">
+      <input class="input-box" placeholder="Batch Name" type="text" id="name" name="name" required>
+
+      <div class="date-input-container">
+        <input class="input-box" placeholder="Start Date" type="date" id="startDate" name="startDate" required>
+        <label class="label" for="startDate">Start Date</label>
+      </div>
+
+      <div class="date-input-container">
+
+
+        <label class="label" for="endDate">End Date</label>
+        <input class="input-box" placeholder="End Date" type="date" id="endDate" name="endDate" required>
+
+      </div>
+      <button type="submit">Create Batch</button>
+    </form>
+
+  </div>
 </div>
