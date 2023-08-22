@@ -314,3 +314,27 @@ select option[disabled]{
   display: none;
   color: var(--themeColor);
 }
+
+.result-select{
+  /* width: 100%; */
+  display: block;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  color: var(--themeColor);
+  width: 95%;
+  background-color: var(--activeLightColor);
+}
+
+.student-interview-table thead tr:hover{
+  background-color: var(--themeColor);
+}
+
+.student-interview-table tr:hover{
+  background-color: rgb(225 210 210 / 27%);
+}
+.student-interview-table td:last-child{
+  display: block;
+}
+
+

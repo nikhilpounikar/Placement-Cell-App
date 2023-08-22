@@ -1,18 +1,21 @@
 <%# I am some comment! %>
     <!-- Code for Layouts -->
     <!-- <link rel="stylesheet" href="/css/home.css">-->
-    <link rel="stylesheet" href="/css/home.css">
-    <div id="loader">
+    <!-- <link rel="stylesheet" href="/css/home.css"> -->
+    <!-- <div id="loader">
 
         <span>Loading...</span>
 
-    </div>
-    <div id="main-container">
+    </div> -->
+    <div id="table-container">
         <!-- Authenticate if user is loged in  -->
 
         <% if (locals.interview && locals.interview.students){ %>
-            <h2>Student List</h2>
-            <table>
+
+            <div class="heading-container">
+                <h2>Student List</h2>
+            </div>
+            <table class="student-interview-table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -60,7 +63,7 @@
                             <% for(let result of locals.interview.results){ %>
                                 <% if (result.student.toString()==student._id.toString()) { %>
                                     <td>
-                                        <select onchange="updateStatus(this,'<%= result._id %>')">
+                                        <select class="result-select" onchange="updateStatus(this,'<%= result._id %>')">
                                             <option value="Pass" <%=result.status=='Pass' ? "selected" : '' %>>Pass
                                             </option>
                                             <option value="Fail" <%=result.status=='Fail' ? "selected" : '' %>>Fail
@@ -93,10 +96,10 @@
 
             let loader = document.getElementById('loader');
 
-            // Show loader
-            loader.style.display = 'flex';
-            loader.style.justifyContent = 'center';
-            loader.style.alignItems = 'center';
+            // // Show loader
+            // loader.style.display = 'flex';
+            // loader.style.justifyContent = 'center';
+            // loader.style.alignItems = 'center';
 
             fetch(`/result/updateStatus/` + resultId, {
                 method: 'POST',
@@ -107,18 +110,18 @@
                     "newStatus": resultStatus,
                 }),
             })
-            .then(response => response.json()) 
+                .then(response => response.json())
                 .then(data => {
-                    loader.style.display = 'none';
+                    // loader.style.display = 'none';
                     if (data.success) {
-                       window.location.reload();
+                        window.location.reload();
                     } else {
                         alert('Error Updating Status')
                     }
                 })
                 .catch(error => {
                     loader.style.display = 'none';
-                    console.error('Error occurred:', error);
+                    // console.error('Error occurred:', error);
                 });
         }
 
