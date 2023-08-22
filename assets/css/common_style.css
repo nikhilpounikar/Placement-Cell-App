@@ -1,7 +1,9 @@
 :root {
   --activeLightColor: #d7f8ed;
   --activeColor: #67d9b4;
+
 }
+
 table {
   width: 90vw;
   margin: 0px auto;
