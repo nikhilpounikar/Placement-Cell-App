@@ -2,8 +2,8 @@
 const mongoose = require('mongoose');
 
 //connect to the database
-mongoose.connect('mongodb://127.0.0.1/Placement_Cell_DB');
-
+// mongodb+srv://nikhilpounikar:1IWKLK3KdLBb2X9U@cluster0.sbronh6.mongodb.net/?retryWrites=true&w=majority
+mongoose.connect('mongodb+srv://whiteWolff:praduman@cluster0.an8uy3k.mongodb.net/Placement_Cell_DB?retryWrites=true&w=majority');
 //acquire the connection(to check if it's successful)
 const db = mongoose.connection;
 

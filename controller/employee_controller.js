@@ -75,7 +75,6 @@ module.exports.destroySession = function (req, res) {
     req.flash("success", "You have logged out!");
     return res.render("dashboard", {
       title: "Placement | Home",
-      employee
     });
   });
 };
