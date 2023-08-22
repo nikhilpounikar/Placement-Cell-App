@@ -1,44 +1,46 @@
-<link rel="stylesheet" href="/css/student_form.css">
+<div class="form-page-container">
+    <div class="form-container">
+        <div class="form-heading">
+            <h2 class="form-heading">Student Information Form</h2>
+        </div>
+        <form action="/student/register" method="POST" class="form">
 
-<div class="form-container">
-
-  <form action="/student/register" method="POST">
-      <div class="input-container">
-
-          <div class="leftContainer">
-              <h2>Student Information Form</h2>
-
-              <input type="email" placeholder="Email" id="email" name="email" required>
+            <input class="input-box " type="email" placeholder="Email" id="email" name="email" required>
 
 
-              <input type="text" placeholder="Name" id="name" name="name" required>
+            <input class="input-box " type="text" placeholder="Name" id="name" name="name" required>
 
 
-              <input type="text" placeholder="Collage" id="collage" name="collage" required>
+            <input class="input-box " type="text" placeholder="Collage" id="collage" name="collage"
+                required>
 
-              <input type="hidden" value="Not Placed" name="status">
-              
-          </div>
-
-          <div class="rightContainer">
-              <h2>Student Information Form</h2>
-
-              <input type="number" placeholder="React Score" id="reactScore" name="reactScore" required>
-
-              <input type="number" placeholder="Web Dev Score" id="webDevelopmentScore" name="webDevelopmentScore"
-                  required>
-
-              <input type="number" placeholder="DSA Score" id="dsaScore" name="dsaScore" required>
-            
-              <select id="batch" name="batch">
-                    <% for(let currentBathc of batch) { %>
-                        <option value="<%= currentBathc._id%>"><%= currentBathc.name%></option>
+            <select id="" name="batch">
+                <option value="" disabled selected hidden>Select Batch</option>
+                <% for(let currentBathc of batch) { %>
+                    <option value="<%= currentBathc._id%>">
+                        <%= currentBathc.name%>
+                    </option>
                     <% } %>
-              </select>
-              <input type="submit" value="Submit">
-          </div>
-      </div>
+            </select>
 
 
-  </form>
+            <input type="number" class="input-box" placeholder="React Score" id="reactScore" name="reactScore" required>
+
+            <input type="number" class="input-box" placeholder="Web Dev Score" id="webDevelopmentScore"
+                name="webDevelopmentScore" required>
+
+            <input type="number" class="input-box" placeholder="DSA Score" id="dsaScore" name="dsaScore" required>
+
+            <input type="hidden" value="Not Placed" name="status">
+
+
+            <div class="form-button-container">
+                <div class='btn-light'><button type="submit">Add</button></div>
+            </div>
+
+
+
+
+        </form>
+    </div>
 </div>

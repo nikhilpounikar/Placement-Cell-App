@@ -68,23 +68,20 @@ input[type="submit"]:hover {
   margin-top: 10px; /* Added margin */
 }
 
-#batch {
+/* #batch {
   background-color: #463ACB;
   color: #fff;
   border-bottom: 1px solid white;
-  padding: 10px; /* Added padding */
-  margin-bottom: 15px; /* Added margin */
+  padding: 10px; 
+  margin-bottom: 15px; 
 }
 
 #batch option {
   background-color: white;
   color: black;
-}
+} */
 
 input:focus {
   outline: none;
 }
 
-select:focus {
-  outline: none;
-}

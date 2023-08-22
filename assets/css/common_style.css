@@ -210,6 +210,11 @@ button:hover {
   /* box-shadow: 0px 0px 11px rgb(243 239 239 / 80%); */
 }
 
+.input-box-dark{
+  color: var(--themeColor);
+  border-bottom: 1px solid var(--themeColor);
+}
+
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   color: white;
@@ -219,8 +224,20 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   padding: 0px;
 }
 
+/* Target the spin buttons in number input */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  /* Your styling here */
+  display: none;
+}
+
+
 .input-box::placeholder {
   color: white;
+}
+
+.input-box-dark::placeholder {
+  color: var(--themeColor);
 }
 
 input:focus-visible {
@@ -266,4 +283,34 @@ input[type="datetime-local"]::-webkit-datetime-edit-minute-field {
   margin-top: 10px;
   display: flex;
   justify-content: space-around;
+}
+
+select {
+  display: block;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 1px solid white;
+  color:white;
+  width: 95%;
+  background-color: var(--themeColor);
+}
+
+option{
+  color: var(--themeColor);
+  border-bottom: var(--themeColor);
+  background-color: white;
+}
+
+option:hover{
+  background-color: var(--activeColor);
+}
+
+select:focus-visible{
+  outline: none;
+}
+
+select option[disabled]{
+  display: none;
+  color: var(--themeColor);
 }
