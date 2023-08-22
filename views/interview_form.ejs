@@ -1,13 +1,24 @@
-<div class="interview-form-container">
-  <h1>Create Interview</h1>
-  <form action="/interview/create" method="POST">
-    <label for="companyName">Company Name:</label>
-    <input type="text" id="companyName" name="companyName" required><br><br>
+<div class="form-page-container">
 
-    <label for="date">Interview Date:</label>
-    <input type="datetime-local" id="date" name="date" required><br><br>
+  <div class="form-container">
 
-    <button type="submit">Create Interview</button>
-  </form>
+    <div class="form-heading">
+      <h2 class="form-heading">Create Interview</h2>
+    </div>
 
+    <form action="/interview/create" method="POST" class="form">
+      <input class="input-box" placeholder="Company Name" type="text" id="companyName" name="companyName"
+        required>
+
+      <div class="date-input-container">
+        <input class="input-box" type="datetime-local" id="date" name="date" required>
+        <label class="label" for="date">Interview Date</label>
+      </div>
+
+      <div class="form-button-container">
+        <div class='btn-light'><button type="submit">Create</button></div>
+      </div>
+    </form>
+
+  </div>
 </div>
