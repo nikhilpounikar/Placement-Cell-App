@@ -202,7 +202,7 @@ button:hover {
   /* border: 1px solid var(--main-color); */
   border: 0px;
   background-color: transparent;
-  border-bottom: 1px solid white;
+  border-bottom: 2px solid white;
   font-size: small;
   width: 90%;
   height: 35px;
@@ -253,32 +253,20 @@ input:focus-visible {
 .date-input-container {
   width: 100%;
   position: relative;
+  margin-bottom: 30px;
 }
 
 .label {
   position: absolute;
-  top: 50%;
-  /* bottom: 0px; */
   transform: translateY(-50%);
-  left: 6%;
-  font-size: 13px;
-  /* Adjust as needed */
+  font-size: 15px;
   color: white; /* label color */
   pointer-events: none; /* Allow clicking through label */
+  top: 100%;
+  left: 3%;
+  font-weight: bold;
 }
 
-input[type="date"]::-webkit-datetime-edit-text,
-input[type="datetime-local"]::-webkit-datetime-edit-text,
-input[type="date"]::-webkit-datetime-edit-month-field,
-input[type="datetime-local"]::-webkit-datetime-edit-month-field,
-input[type="date"]::-webkit-datetime-edit-day-field,
-input[type="datetime-local"]::-webkit-datetime-edit-day-field,
-input[type="date"]::-webkit-datetime-edit-year-field,
-input[type="datetime-local"]::-webkit-datetime-edit-year-field,
-input[type="datetime-local"]::-webkit-datetime-edit-hour-field,
-input[type="datetime-local"]::-webkit-datetime-edit-minute-field {
-  color: transparent;
-}
 
 .form-button-container {
   margin-top: 10px;

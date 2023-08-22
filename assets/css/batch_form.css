@@ -144,25 +144,6 @@ input:focus-visible {
   position: relative;
 }
 
-.label {
-  position: absolute;
-  top: 50%;
-  /* bottom: 0px; */
-  transform: translateY(-50%);
-  left: 6%;
-  font-size: 13px;
-   /* Adjust as needed */
-  color: white; /* label color */
-  pointer-events: none; /* Allow clicking through label */
-}
-
-input[type="date"]::-webkit-datetime-edit-text,
-input[type="date"]::-webkit-datetime-edit-month-field,
-input[type="date"]::-webkit-datetime-edit-day-field,
-input[type="date"]::-webkit-datetime-edit-year-field {
-  color: transparent;
-}
-
 .form-button-container{
     margin-top: 10px;
     display: flex;
