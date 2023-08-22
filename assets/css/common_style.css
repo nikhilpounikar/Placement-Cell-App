@@ -1,6 +1,6 @@
-:root{
-    --activeLightColor:#d7f8ed;
-    --activeColor:#67d9b4;
+:root {
+  --activeLightColor: #d7f8ed;
+  --activeColor: #67d9b4;
 }
 table {
   width: 90vw;
@@ -21,8 +21,9 @@ td {
   padding: 8px 4px;
 }
 
-th,td{
-    height: 30px;
+th,
+td {
+  height: 30px;
 }
 
 .table-container {
@@ -41,19 +42,19 @@ tr:nth-child(even) {
 }
 
 tbody tr:hover {
-    background-color: var(--activeLightColor);
+  background-color: var(--activeLightColor);
 }
 
-.heading-container{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-    align-items: center;
-    width: 90vw;
-    margin: 0px auto;
+.heading-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  align-items: center;
+  width: 90vw;
+  margin: 0px auto;
 }
 
-.form-heading{
+.form-heading {
   text-align: center;
 }
 .btn-light {
@@ -69,6 +70,17 @@ tbody tr:hover {
   box-shadow: 0px 0px 11px rgb(243 239 239 / 80%);
 }
 
+.btn-light a{
+  background-attachment: transparent;
+  width: 98px;
+  color: var(--themeColor);
+  font-weight: bold;
+}
+
+.btn-light a:hover{
+  color: #0a58ca;
+}
+
 button {
   border: none;
   background: transparent;
@@ -79,4 +91,170 @@ button {
 button:hover {
   cursor: pointer;
   color: #0a58ca;
+}
+
+/* form-styles.css */
+
+/* Style for the batch registration form container */
+.batch-registration-form-container {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  max-width: 400px;
+  margin: 75px auto;
+}
+
+/* Style for the heading inside the form container */
+.batch-registration-form-container h1 {
+  color: #463acb;
+  margin-top: 0;
+  font-size: 24px;
+}
+
+/* Style for form labels */
+.batch-registration-form-container label {
+  color: #463acb;
+  font-weight: bold;
+}
+
+/* Style for form inputs */
+.batch-registration-form-container input[type="text"],
+.batch-registration-form-container input[type="date"] {
+  display: block;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* Style for the submit button */
+.batch-registration-form-container button[type="submit"] {
+  background-color: #463acb;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Hover effect for the submit button */
+.batch-registration-form-container button[type="submit"]:hover {
+  background-color: #311e94;
+}
+
+.form-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
+  height: 85vh;
+}
+
+.form-container {
+  background-color: var(--themeColor);
+  min-width: 300px;
+  max-width: 400px;
+  padding: 10px;
+  padding-bottom: 20px;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-shadow: var(--darkShadow);
+}
+
+.form-button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.info-container {
+  margin: 5%;
+  text-align: center;
+  color: #7eb3ec;
+  font-weight: bold;
+}
+.task-container {
+  margin-top: 0px;
+}
+
+.input-box {
+  padding: 3px;
+  padding-left: 10px;
+  /* border: 1px solid var(--main-color); */
+  border: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+  font-size: small;
+  width: 90%;
+  height: 35px;
+  color: white;
+  margin: 10px 0px;
+  /* box-shadow: 0px 0px 11px rgb(243 239 239 / 80%); */
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: white;
+  filter: invert(1);
+  /* width: 20px; */
+  margin: 0px;
+  padding: 0px;
+}
+
+.input-box::placeholder {
+  color: white;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+.form-heading {
+  color: white;
+  text-align: center;
+}
+
+.date-input-container {
+  width: 100%;
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  top: 50%;
+  /* bottom: 0px; */
+  transform: translateY(-50%);
+  left: 6%;
+  font-size: 13px;
+  /* Adjust as needed */
+  color: white; /* label color */
+  pointer-events: none; /* Allow clicking through label */
+}
+
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+  color: transparent;
+}
+
+.form-button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
 }

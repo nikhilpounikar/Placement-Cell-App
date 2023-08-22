@@ -1,25 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Employee Login</title>
-   <link rel="stylesheet" href="/css/login.css">
-</head>
-<body>
+<div class="form-page-container">
 
-<div class="container">
-  <h2>Employee Login</h2>
-  
-  <form action="/employee/sign-in" method="POST">
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-    
-    <button type="submit">Login</button>
-  </form>
-  <a href="/employee/sign-up">Sign Up</a>
+  <div class="form-container">
+    <div class="form-heading">
+      <h2 class="form-heading">Employee Login</h2>
+    </div>
+
+    <form action="/employee/sign-in" method="POST" class="form">
+      <input class="input-box" placeholder="email" type="email" id="email" name="email" required>
+
+      <input class="input-box" placeholder="Password" type="password" id="password" name="password" required>
+
+
+      <div class="form-button-container">
+        <div class='btn-light'><button type="submit">Login</button></div>
+        <div class="btn-light">
+          <a href="/employee/sign-up">Sign Up</a>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
 </div>
-
-</body>
-</html>
