@@ -1,20 +1,36 @@
-// getting dependencies
+// Import required modules
 const express = require('express');
 
-// getting homeController
+// Import the home controller module
 const homeController = require('../controller/home_controller');
 const passport = require("passport");
 
-// getting router instance
+// Create a new instance of the Express Router
 const router = express.Router();
 
-console.log("Router loader");
-router.get('/',passport.checkAuthentication,homeController.home);
-router.use('/employee',require('./employee_route'));
-router.use('/student',require('./student_route'));
-router.use('/batch',require('./batch_route'));
-router.use('/interview',require('./interview_route'));
-router.use('/result',require('./result_route'));
-//router.use('/user',require('./userRoute'));
+// Define the main routes
 
+// GET route for the home page
+// Uses the passport.checkAuthentication middleware to ensure authentication before accessing the home page
+router.get('/', passport.checkAuthentication, homeController.home);
+
+// Use other route modules
+// Each module defines its own routes and functionality
+
+// Load the employee route module
+router.use('/employee', require('./employee_route'));
+
+// Load the student route module
+router.use('/student', require('./student_route'));
+
+// Load the batch route module
+router.use('/batch', require('./batch_route'));
+
+// Load the interview route module
+router.use('/interview', require('./interview_route'));
+
+// Load the result route module
+router.use('/result', require('./result_route'));
+
+// Export the router to make it available in other parts of the application
 module.exports = router;
