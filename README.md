@@ -1,8 +1,5 @@
 # Placement-Cell-App
-A full stack, app used for reviewing Placement situation of students enrollered in various courses. Hoisted Link :
-
-Description
-A full stack app, in which the admin, can assign the employees, to review each other on the basic of there work. The admin has special power, to make any other employee as the new admin. Admin can also make the new employee, and they can also assing, the reviewer and revieweee. The admin can see the current employee, and according to the review, the admin can remove the employee. The review given to the employee, is always going to be store in the database.
+A full stack, app used for reviewing Placement situation of students enrollered in various courses
 
 Tech Stack
 Node , Express, Mongodb , EJS , javaScript , html, css
@@ -15,19 +12,19 @@ After reaching the project directory you have to run the following the command.
 
      npm install 
      npm start || nodemon index.js
-If you want to make an employee as admin then use the secret key : happy.
-Features
-You can review the employees. The admin has the special power to assing, the task to employee, remove the employee, add new admin, and also employee;
 
-HomePage / Admin View
-Home page / Employee view
+HomePage / Employee View ==> List of studensts
 Sign-Up
 Sign-In
-Forget Password
-Assign Task
-Employee List
+Add Student form
+Add Batch form
+Inteview List
+Add Interview
+Mapped Student and Interview
+
+
 Folder Structure
-Placement-Cell-App    |
+Placement-Cell-App    
     |               |--->css
     |--->assets---->|--->images
     |             
@@ -35,34 +32,43 @@ Placement-Cell-App    |
     |               |--->flashMiddleware.js
     |--->config---->|--->mongoose.js
     |               |--->passport-local-Stradegy.js
+    |               |--->enviromment.js
     |
-    |                  |-->admin_controller.js
-    |--->controllers-->|-->home_controller.js
-    |                  |-->review_controller.js
-    |                  |-->user_controller.js
+    |                  |-->batch_controller.js
+    |--->controllers-->|-->csv_generation_controller.js
+    |                  |-->employee_controller.js
+    |                  |-->home_controller.js
+    |                  |-->interview_controller.js
+    |                  |-->result_controller.js
+    |                  |-->student_controller.js
     |
-    |               |-->review.js
-    |--->models---->|
-    |               |-->user.js
+    |               |-->Batch.js
+    |--->models---->|-->Employee.js
+    |               |-->Interview.js
+    |               |-->Result.js
+    |               |-->STudent.js
     |
     |              
-    |               |-->admin.js
-    |--->routes---->|-->index.js
-    |               |-->review.js
-    |               |-->user.js
+    |               |-->batch_route.js
+    |--->routes---->|-->employee_route.js
+    |               |-->index_route.js
+    |               |-->interview_route.js
+    |               |-->result_route.js
+    |               |-->student_route.js
     |
     |              |--->_header.ejs
-    |              |---> addEmployee.ejs
-    |              |---> admin.ejs
-    |              |---> employe.ejs
-    |--->views---->|--->forget_password.ejs
-    |              |--->home.ejs
-    |              |--->layout.ejs
-    |              |--->sign_in.ejs
-    |              |--->sign_up.ejs
+    |              |---> batch_form.ejs
+    |              |---> dashboard.ejs
+    |              |---> employee_login.ejs
+    |--->views---->|--->employee_registration.ejs
+    |              |--->interview_form.ejs
+    |              |--->interview_table.ejs
+    |              |--->layouts.ejs
+    |              |--->student_form.ejs
+    |              |--->student_interview_page.ejs
+    |              |--->student_table_by_interview.ejs
     |
     |-->node_modules
-    |-->.gitignore
     |--> index.js
     |--> package-lock.json
     |-->package.json
