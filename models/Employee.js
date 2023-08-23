@@ -1,26 +1,28 @@
 const mongoose = require("mongoose");
-//const AVATAR_PATH = path.join("uploads/users/avatars");
 
+// Define the schema for the "Employee" model
 const EmployeeSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      require: true,
+      required: true, // The name field is required
     },
     email: {
       type: String,
-      require: true,
+      required: true, // The email field is required
     },
     password: {
       type: String,
-      require: true,
+      required: true, // The password field is required
     }
   },
   {
-    timestamps: true,
+    timestamps: true, // Automatically adds createdAt and updatedAt fields
   }
 );
 
+// Create the "Employee" model using the defined schema
 const Employee = mongoose.model("Employee", EmployeeSchema);
 
+// Export the "Employee" model to make it accessible in other parts of the application
 module.exports = Employee;

@@ -1,34 +1,34 @@
 const mongoose = require("mongoose");
-//const AVATAR_PATH = path.join("uploads/users/avatars");
 
+// Define the schema for the "Batch" model
 const batchSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      require: true,
+      required: true, // The name field is required
     },
     students: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Student",
+        ref: "Student", // Reference to the "Student" model for populating students
       },
     ],
-    startDate:{
-        type: Date,
-        require:true
+    startDate: {
+      type: Date,
+      required: true, // The start date field is required
     },
-    endDate:{
-        type: Date,
-        require:true
+    endDate: {
+      type: Date,
+      required: true, // The end date field is required
     }
   },
   {
-    timestamps: true,
+    timestamps: true, // Automatically adds createdAt and updatedAt fields
   }
 );
 
-
-
+// Create the "Batch" model using the defined schema
 const Batch = mongoose.model("Batch", batchSchema);
 
+// Export the "Batch" model to make it accessible in other parts of the application
 module.exports = Batch;
