@@ -89,9 +89,7 @@ module.exports.destroySession = function (req, res) {
       return res.redirect("back");
     }
     req.flash("success", "You have logged out!");
-    return res.render("dashboard", {
-      title: "Placement | Home",
-    });
+    return res.redirect('/employee/sign-in');
   });
 };
 
